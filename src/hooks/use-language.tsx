@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, ReactNode, useMemo, useCallback } from 'react';
 import en from '@/locales/en.json';
 import ru from '@/locales/ru.json';
+import am from '@/locales/am.json';
 
 export type Language = {
   code: string;
@@ -16,7 +17,7 @@ export const languages: Language[] = [
   { code: 'am', name: 'Հայերեն', flag: '🇦🇲' },
 ];
 
-const translations: Record<string, any> = { en, ru };
+const translations: Record<string, any> = { en, ru, am };
 
 // Simple deep get function
 const get = (obj: any, path: string, defaultValue: string = path) => {
