@@ -13,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, ThumbsUp } from 'lucide-react';
 import { useState } from 'react';
 import { StarRating } from '@/components/StarRating';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: 'First name must be at least 2 characters.' }),
@@ -22,6 +23,7 @@ const formSchema = z.object({
 
 export default function FeedbackPage() {
   const { toast } = useToast();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
@@ -52,12 +54,7 @@ export default function FeedbackPage() {
       title: 'Thank you!',
       description: "Your feedback and rating have been sent to the administrator for review.",
     });
-    // Optionally reset to initial state after some time
-    setTimeout(() => {
-        setIsSubmitted(false);
-        setSubmittedName('');
-        form.reset();
-    }, 3000);
+    router.push('/');
   };
 
   return (
