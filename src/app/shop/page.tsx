@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
+import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -38,9 +39,11 @@ const productImages = [
 ]
 
 export default function Shop() {
-  const [priceRange, setPriceRange] = useState([0, 300]);
+  const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
+  const [priceRange, setPriceRange] = useState([0, maxPrice]);
   const [country, setCountry] = useState('all');
   const [productType, setProductType] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
   const { addToCart } = useCart();
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -54,9 +57,10 @@ export default function Shop() {
       const isPriceMatch = product.price >= minPrice && product.price <= maxPrice;
       const isCountryMatch = country === 'all' || product.country === country;
       const isTypeMatch = productType === 'all' || product.type === productType;
-      return isPriceMatch && isCountryMatch && isTypeMatch;
+      const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return isPriceMatch && isCountryMatch && isTypeMatch && isSearchMatch;
     });
-  }, [priceRange, country, productType]);
+  }, [priceRange, country, productType, searchTerm]);
 
   const getProductImage = (imageId: string) => {
       return productImages.find(img => img.id === imageId) || { url: 'https://placehold.co/400x300', hint: 'placeholder'};
@@ -80,12 +84,23 @@ export default function Shop() {
           <aside className="md:col-span-1 bg-card p-6 rounded-lg shadow-sm">
             <h2 className="text-2xl font-semibold mb-6">{t('shop.filters.title')}</h2>
             <div className="space-y-6">
+               <div>
+                <label htmlFor="search-input" className="text-lg font-medium">{t('shop.filters.searchByName')}</label>
+                <Input 
+                  id="search-input"
+                  placeholder={t('shop.filters.searchPlaceholder')}
+                  className="mt-2"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <Separator />
               <div>
                 <label className="text-lg font-medium">{t('shop.filters.priceRange')}</label>
                 <div className="mt-2">
                   <Slider
                     min={0}
-                    max={300}
+                    max={maxPrice}
                     step={10}
                     value={priceRange}
                     onValueChange={(value) => setPriceRange(value)}

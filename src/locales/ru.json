@@ -125,7 +125,9 @@
       "country": "Страна",
       "allCountries": "Все страны",
       "productType": "Тип товара",
-      "allTypes": "Все типы"
+      "allTypes": "Все типы",
+      "searchByName": "Поиск по названию",
+      "searchPlaceholder": "например, тормозные колодки"
     },
     "addToCart": "Добавить в корзину",
     "noProducts": "Нет товаров, соответствующих вашим фильтрам.",

@@ -125,7 +125,9 @@
       "country": "Country",
       "allCountries": "All Countries",
       "productType": "Product Type",
-      "allTypes": "All Types"
+      "allTypes": "All Types",
+      "searchByName": "Search by name",
+      "searchPlaceholder": "e.g., Brake Pads"
     },
     "addToCart": "Add to Cart",
     "noProducts": "No products match your current filters.",
