@@ -10,8 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Header } from '@/components/Header';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import { Loader2, ThumbsUp } from 'lucide-react';
 import { useState } from 'react';
+import { StarRating } from '@/components/StarRating';
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: 'First name must be at least 2 characters.' }),
@@ -22,6 +23,8 @@ const formSchema = z.object({
 export default function FeedbackPage() {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,12 +42,23 @@ export default function FeedbackPage() {
     setIsLoading(false);
 
     console.log(values);
-    toast({
-      title: 'Feedback Submitted!',
-      description: "Your feedback has been sent to the administrator for review.",
-    });
-    form.reset();
+    setSubmittedName(values.firstName);
+    setIsSubmitted(true);
   }
+
+  const handleRatingSubmit = (rating: number) => {
+    console.log(`Rating submitted: ${rating}`);
+    toast({
+      title: 'Thank you!',
+      description: "Your feedback and rating have been sent to the administrator for review.",
+    });
+    // Optionally reset to initial state after some time
+    setTimeout(() => {
+        setIsSubmitted(false);
+        setSubmittedName('');
+        form.reset();
+    }, 3000);
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -52,65 +66,75 @@ export default function FeedbackPage() {
       <main className="flex-1 container mx-auto py-12 px-4 flex items-center justify-center">
         <Card className="w-full max-w-2xl shadow-lg">
           <CardHeader>
-            <CardTitle className="text-3xl font-headline font-bold text-center">Leave a Feedback</CardTitle>
+            <CardTitle className="text-3xl font-headline font-bold text-center">
+              {isSubmitted ? `Thank You, ${submittedName}!` : 'Leave a Feedback'}
+            </CardTitle>
             <CardDescription className="text-center text-lg text-muted-foreground pt-2">
-              We'd love to hear from you! Please share your thoughts with us.
+              {isSubmitted ? "As a final step, please rate your experience." : "We'd love to hear from you! Please share your thoughts with us."}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            {isSubmitted ? (
+              <div className="text-center">
+                <ThumbsUp className="h-16 w-16 mx-auto text-primary mb-4" />
+                <p className="mb-6">Your feedback has been received.</p>
+                <StarRating onSubmit={handleRatingSubmit} />
+              </div>
+            ) : (
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="John" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Doe" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="feedback"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>Your Feedback</FormLabel>
                         <FormControl>
-                          <Input placeholder="John" {...field} />
+                          <Textarea
+                            placeholder="Tell us what you think..."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Last Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Doe" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="feedback"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Feedback</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Tell us what you think..."
-                          className="min-h-[120px]"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" disabled={isLoading} className="w-full text-lg py-6">
-                  {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
-                  Submit Feedback
-                </Button>
-              </form>
-            </Form>
+                  <Button type="submit" disabled={isLoading} className="w-full text-lg py-6">
+                    {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+                    Submit Feedback
+                  </Button>
+                </form>
+              </Form>
+            )}
           </CardContent>
         </Card>
       </main>
