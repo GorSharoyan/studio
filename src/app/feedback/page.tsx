@@ -41,7 +41,7 @@ export default function FeedbackPage() {
     console.log(values);
     toast({
       title: 'Feedback Submitted!',
-      description: "Thank you for your valuable feedback.",
+      description: "Your feedback has been sent to the administrator for review.",
     });
     form.reset();
   }
