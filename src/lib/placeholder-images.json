@@ -41,6 +41,12 @@
       "description": "Renault brand logo.",
       "imageUrl": "https://images.unsplash.com/photo-1664385104449-c18d0f73d827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxSZW5hdWx0JTIwbG9nb3xlbnwwfHx8fDE3NzE0Nzc0MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Renault logo"
+    },
+    {
+      "id": "brand-logo-peugeot",
+      "description": "Peugeot brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1628522399999-548a3a0e7a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQZXVnZW90JTIwbG9nb3xlbnwwfHx8fDE3NzE1NDk5MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Peugeot logo"
     }
   ]
 }
