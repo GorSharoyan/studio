@@ -9,7 +9,7 @@ import { generate, improve } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { BrainCircuit, Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 export default function Home() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -64,16 +64,13 @@ export default function Home() {
       <Header />
       <main className="container mx-auto flex-1 px-4 pb-12">
         <div className="py-8 md:py-12 text-center">
-          <div className="flex items-center justify-center gap-4">
-            <BrainCircuit className="h-10 w-10 text-primary" />
-            <div>
-                <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                Solution.am
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
-                </p>
-            </div>
+          <div>
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            Solution.am
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
+            </p>
           </div>
         </div>
 
