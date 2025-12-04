@@ -138,6 +138,11 @@
     "cartToast": {
         "title": "Added to cart!",
         "description": "{productName} has been added to your cart."
+    },
+    "quickView": "Quick View",
+    "modal": {
+      "brand": "Brand",
+      "origin": "Country of Origin"
     }
   }
 }

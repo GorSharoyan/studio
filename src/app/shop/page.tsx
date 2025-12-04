@@ -8,35 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/hooks/use-cart';
 import type { Product } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
-
-const products: Product[] = [
-  { id: 1, name: 'Brake Pads', price: 50, country: 'Germany', type: 'Brakes', imageId: 'product-1' },
-  { id: 2, name: 'Oil Filter', price: 15, country: 'USA', type: 'Engine', imageId: 'product-2' },
-  { id: 3, name: 'Air Filter', price: 25, country: 'Japan', type: 'Engine', imageId: 'product-3' },
-  { id: 4, name: 'Spark Plugs', price: 30, country: 'Germany', type: 'Engine', imageId: 'product-4' },
-  { id: 5, name: 'Suspension Kit', price: 250, country: 'USA', type: 'Suspension', imageId: 'product-5' },
-  { id: 6, name: 'Headlight Bulb', price: 10, country: 'China', type: 'Lighting', imageId: 'product-6' },
-  { id: 7, name: 'Brake Rotor', price: 80, country: 'Germany', type: 'Brakes', imageId: 'product-7' },
-  { id: 8, name: 'Battery', price: 120, country: 'South Korea', type: 'Electrical', imageId: 'product-8' },
-];
-
-const productImages = [
-    { id: 'product-1', url: 'https://picsum.photos/seed/p1/400/300', hint: 'brake pads' },
-    { id: 'product-2', url: 'https://picsum.photos/seed/p2/400/300', hint: 'oil filter' },
-    { id: 'product-3', url: 'https://picsum.photos/seed/p3/400/300', hint: 'air filter' },
-    { id: 'product-4', url: 'https://picsum.photos/seed/p4/400/300', hint: 'spark plugs' },
-    { id: 'product-5', url: 'https://picsum.photos/seed/p5/400/300', hint: 'suspension' },
-    { id: 'product-6', url: 'https://picsum.photos/seed/p6/400/300', hint: 'light bulb' },
-    { id: 'product-7', url: 'https://picsum.photos/seed/p7/400/300', hint: 'brake rotor' },
-    { id: 'product-8', url: 'https://picsum.photos/seed/p8/400/300', hint: 'car battery' },
-]
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
+import { products } from '@/lib/products';
 
 export default function Shop() {
   const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
@@ -44,12 +23,13 @@ export default function Shop() {
   const [country, setCountry] = useState('all');
   const [productType, setProductType] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { addToCart } = useCart();
   const { toast } = useToast();
   const { t } = useLanguage();
 
-  const countries = useMemo(() => ['all', ...new Set(products.map(p => p.country))], []);
-  const productTypes = useMemo(() => ['all', ...new Set(products.map(p => p.type))], []);
+  const countries = useMemo(() => ['all', ...Array.from(new Set(products.map(p => p.country)))], []);
+  const productTypes = useMemo(() => ['all', ...Array.from(new Set(products.map(p => p.type)))], []);
 
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
@@ -63,15 +43,16 @@ export default function Shop() {
   }, [priceRange, country, productType, searchTerm]);
 
   const getProductImage = (imageId: string) => {
-      return productImages.find(img => img.id === imageId) || { url: 'https://placehold.co/400x300', hint: 'placeholder'};
+    return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/400x300', imageHint: 'placeholder' };
   }
-  
+
   const handleAddToCart = (product: Product) => {
     addToCart(product);
     toast({
       title: t('shop.cartToast.title'),
       description: t('shop.cartToast.description').replace('{productName}', product.name),
     });
+    setSelectedProduct(null); // Close dialog on add to cart
   };
 
   return (
@@ -81,12 +62,12 @@ export default function Shop() {
         <h1 className="text-4xl font-headline font-bold mb-8">{t('shop.title')}</h1>
         <div className="grid md:grid-cols-4 gap-8">
           {/* Filters */}
-          <aside className="md:col-span-1 bg-card p-6 rounded-lg shadow-sm">
+          <aside className="md:col-span-1 bg-card p-6 rounded-lg shadow-sm h-fit sticky top-20">
             <h2 className="text-2xl font-semibold mb-6">{t('shop.filters.title')}</h2>
             <div className="space-y-6">
-               <div>
+              <div>
                 <label htmlFor="search-input" className="text-lg font-medium">{t('shop.filters.searchByName')}</label>
-                <Input 
+                <Input
                   id="search-input"
                   placeholder={t('shop.filters.searchPlaceholder')}
                   className="mt-2"
@@ -141,55 +122,75 @@ export default function Shop() {
           {/* Products */}
           <section className="md:col-span-3">
             {filteredProducts.length > 0 ? (
-                <Carousel
-                    opts={{
-                        align: "start",
-                    }}
-                    className="w-full"
-                >
-                    <CarouselContent>
-                        {filteredProducts.map(product => {
-                            const image = getProductImage(product.imageId);
-                            return (
-                                <CarouselItem key={product.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                    <Card className="h-full flex flex-col">
-                                        <CardHeader>
-                                            <div className="aspect-[4/3] relative rounded-t-lg overflow-hidden">
-                                                <Image 
-                                                    src={image.url}
-                                                    alt={product.name}
-                                                    fill
-                                                    className="object-cover"
-                                                    data-ai-hint={image.hint}
-                                                />
-                                            </div>
-                                        </CardHeader>
-                                        <CardContent className="flex-1 flex flex-col justify-between">
-                                          <div>
-                                              <CardTitle className="text-xl mb-2">{product.name}</CardTitle>
-                                              <p className="font-bold text-primary text-lg">${product.price}</p>
-                                              <p className="text-sm text-muted-foreground">{product.type} from {product.country}</p>
-                                          </div>
-                                          <Button className="w-full mt-4" onClick={() => handleAddToCart(product)}>{t('shop.addToCart')}</Button>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                                </CarouselItem>
-                            )
-                        })}
-                    </CarouselContent>
-                    <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2" />
-                    <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2" />
-                </Carousel>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map(product => {
+                  const image = getProductImage(product.imageId);
+                  return (
+                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer flex flex-col" onClick={() => setSelectedProduct(product)}>
+                      <CardHeader className="p-0">
+                        <div className="aspect-[4/3] relative">
+                          <Image
+                            src={image.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={image.imageHint}
+                          />
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                          <CardTitle className="text-lg mb-2">{product.name}</CardTitle>
+                          <p className="font-bold text-primary text-lg">${product.price}</p>
+                        </div>
+                        <Button variant="outline" className="w-full mt-4">{t('shop.quickView')}</Button>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
+              </div>
             ) : (
-                <div className="flex items-center justify-center h-full bg-card rounded-lg shadow-sm p-8">
-                    <p className="text-muted-foreground text-lg">{t('shop.noProducts')}</p>
-                </div>
+              <div className="flex items-center justify-center h-full bg-card rounded-lg shadow-sm p-8">
+                <p className="text-muted-foreground text-lg">{t('shop.noProducts')}</p>
+              </div>
             )}
           </section>
         </div>
       </main>
+
+      {selectedProduct && (
+        <Dialog open={!!selectedProduct} onOpenChange={(isOpen) => !isOpen && setSelectedProduct(null)}>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold">{selectedProduct.name}</DialogTitle>
+            </DialogHeader>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={getProductImage(selectedProduct.imageId).imageUrl}
+                  alt={selectedProduct.name}
+                  fill
+                  className="object-cover rounded-md"
+                  data-ai-hint={getProductImage(selectedProduct.imageId).imageHint}
+                />
+              </div>
+              <div className="flex flex-col">
+                <DialogDescription className="text-base text-foreground flex-1">
+                  {selectedProduct.description}
+                </DialogDescription>
+                <div className="text-sm text-muted-foreground mt-4">
+                  <p><span className="font-semibold">{t('shop.modal.brand')}:</span> {selectedProduct.brand}</p>
+                  <p><span className="font-semibold">{t('shop.modal.origin')}:</span> {selectedProduct.country}</p>
+                </div>
+              </div>
+            </div>
+            <DialogFooter className="sm:justify-between items-center">
+              <p className="text-2xl font-bold text-primary">${selectedProduct.price}</p>
+              <Button size="lg" onClick={() => handleAddToCart(selectedProduct)}>{t('shop.addToCart')}</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }

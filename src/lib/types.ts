@@ -5,4 +5,6 @@ export type Product = {
   country: string;
   type: string;
   imageId: string;
+  brand: string;
+  description: string;
 };
