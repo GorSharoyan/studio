@@ -1,18 +1,39 @@
-import { BrainCircuit } from 'lucide-react';
+import Link from 'next/link';
 
 export function Header() {
   return (
-    <header className="py-8 md:py-12">
-      <div className="container mx-auto px-4 text-center">
-        <div className="flex items-center justify-center gap-4">
-          <BrainCircuit className="h-10 w-10 text-primary" />
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            PromptSolutions
-          </h1>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <div className="mr-4 hidden md:flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <span className="hidden font-bold sm:inline-block">
+              Solution.am
+            </span>
+          </Link>
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            <Link
+              href="#"
+              className="transition-colors hover:text-foreground/80 text-foreground"
+            >
+              Home
+            </Link>
+            <Link
+              href="#"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              Shop
+            </Link>
+            <Link
+              href="#"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              Contacts
+            </Link>
+          </nav>
         </div>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Your AI-powered partner for creative problem-solving.
-        </p>
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          {/* Mobile menu can go here */}
+        </div>
       </div>
     </header>
   );

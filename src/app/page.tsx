@@ -9,6 +9,7 @@ import { generate, improve } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { BrainCircuit } from 'lucide-react';
 
 export default function Home() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -62,6 +63,18 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="container mx-auto flex-1 px-4 pb-12">
+        <div className="py-8 md:py-12 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <BrainCircuit className="h-10 w-10 text-primary" />
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              PromptSolutions
+            </h1>
+          </div>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Your AI-powered partner for creative problem-solving.
+          </p>
+        </div>
+
         <div className="mx-auto max-w-3xl">
           <PromptForm onSubmit={handleGenerate} isLoading={isLoading} />
           {error && (
