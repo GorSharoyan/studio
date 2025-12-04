@@ -71,13 +71,15 @@ export default function Home() {
         <div className="py-8 md:py-12 text-center">
           <div className="flex items-center justify-center gap-4">
             <BrainCircuit className="h-10 w-10 text-primary" />
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-              Solution.am
-            </h1>
+            <div>
+                <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+                Solution.am
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
+                </p>
+            </div>
           </div>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Your AI-powered partner for creative problem-solving.
-          </p>
         </div>
 
         <div className="mx-auto max-w-3xl">
