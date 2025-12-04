@@ -3,9 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
-import type { Solution } from '@/app/actions';
-import { generate, improve } from '@/app/actions';
-import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
@@ -13,55 +10,8 @@ import { Button } from '@/components/ui/button';
 import { Handshake, Mail, MapPin, MessageSquare, ShoppingCart } from 'lucide-react';
 
 export default function Home() {
-  const [solutions, setSolutions] = useState<Solution[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [prompt, setPrompt] = useState('');
-  const [isImproving, setIsImproving] = useState<number | null>(null);
-  const { toast } = useToast();
-
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
   const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
-
-  const handleGenerate = async (newPrompt: string) => {
-    setIsLoading(true);
-    setError(null);
-    setSolutions([]);
-    setPrompt(newPrompt);
-
-    const result = await generate(newPrompt);
-
-    setIsLoading(false);
-    if (result.error) {
-      setError(result.error);
-    } else {
-      setSolutions(result.solutions);
-    }
-  };
-
-  const handleFeedback = async (index: number, feedback: string) => {
-    setIsImproving(index);
-    const solutionToImprove = solutions[index];
-    if (!solutionToImprove) {
-      setIsImproving(null);
-      return;
-    }
-
-    const result = await improve(prompt, solutionToImprove.original, feedback);
-
-    const newSolutions = [...solutions];
-    if (result.error) {
-      toast({
-        variant: 'destructive',
-        title: 'Feedback Error',
-        description: result.error,
-      });
-    } else {
-      newSolutions[index] = { ...newSolutions[index], improved: result.improvedSolution || 'Could not improve.', feedback };
-    }
-    setSolutions(newSolutions);
-    setIsImproving(null);
-  };
   
   const actionItems = [
     { title: 'Become a Dealer', icon: Handshake },
@@ -133,16 +83,16 @@ export default function Home() {
             >
                 <CarouselContent>
                     {brandLogos.map((logo) => (
-                        <CarouselItem key={logo.id} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
-                            <div className="p-1">
-                                <Card>
-                                    <CardContent className="flex aspect-video items-center justify-center p-6">
+                        <CarouselItem key={logo.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
+                            <div className="p-2">
+                                <Card className="overflow-hidden">
+                                    <CardContent className="flex aspect-square items-center justify-center p-4">
                                     <Image 
                                         src={logo.imageUrl}
                                         alt={logo.description}
                                         width={150}
-                                        height={75}
-                                        className="object-contain"
+                                        height={150}
+                                        className="object-contain w-full h-full"
                                         data-ai-hint={logo.imageHint}
                                     />
                                     </CardContent>
