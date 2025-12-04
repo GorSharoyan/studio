@@ -125,7 +125,7 @@ export default function Home() {
             >
                 <CarouselContent>
                     {brandLogos.map((logo) => (
-                        <CarouselItem key={logo.id} className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6">
+                        <CarouselItem key={logo.id} className="basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
                             <div className="p-2">
                                 <Card className="overflow-hidden aspect-square">
                                     <CardContent className="flex items-center justify-center p-4 h-full w-full">
