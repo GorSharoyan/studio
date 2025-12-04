@@ -16,7 +16,7 @@ export default function Home() {
   const actionItems = [
     { title: 'Become a Dealer', icon: Handshake, href: '/dealer' },
     { title: 'Shop Now', icon: ShoppingCart, href: '/shop' },
-    { title: 'Leave a Feedback', icon: MessageSquare, href: '/contacts' },
+    { title: 'Leave a Feedback', icon: MessageSquare, href: '/feedback' },
   ];
 
   const testimonials = [

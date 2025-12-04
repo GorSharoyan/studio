@@ -54,6 +54,12 @@ export function Header() {
               Become a Dealer
             </Link>
             <Link
+              href="/feedback"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              Feedback
+            </Link>
+            <Link
               href="/contacts"
               className="transition-colors hover:text-foreground/80 text-foreground"
             >
