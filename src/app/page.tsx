@@ -9,7 +9,7 @@ import { generate, improve } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { BrainCircuit } from 'lucide-react';
+import { BrainCircuit, Mail, MapPin } from 'lucide-react';
 
 export default function Home() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -92,8 +92,28 @@ export default function Home() {
           />
         </div>
       </main>
-      <footer className="py-6 text-center text-sm text-muted-foreground">
-        <p>Built by Firebase Studio.</p>
+      <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto py-8 px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-center md:text-left">
+                <p className="font-bold text-lg">Solution.am</p>
+                <p className="text-sm text-muted-foreground">Creative Solutions for Modern Problems</p>
+            </div>
+            <div className="flex flex-col items-center md:items-start gap-2">
+                <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-muted-foreground" />
+                    <a href="mailto:contact@solution.am" className="text-sm hover:text-primary">contact@solution.am</a>
+                </div>
+                <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm">123 Innovation Drive, Tech City</span>
+                </div>
+            </div>
+          </div>
+          <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
+            <p>&copy; {new Date().getFullYear()} Solution.am. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
