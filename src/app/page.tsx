@@ -210,7 +210,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Solution.am. All rights reserved.</p>
+            <p>&copy; 2023 Solution.am. All rights reserved.</p>
           </div>
         </div>
       </footer>
