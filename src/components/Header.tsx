@@ -43,13 +43,13 @@ export function Header() {
             </Link>
             <Link
               href="/shop"
-              className="transition-colors hover:text-foreground/80 text-foreground"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               Shop
             </Link>
             <Link
-              href="#"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              href="/contacts"
+              className="transition-colors hover:text-foreground/80 text-foreground"
             >
               Contacts
             </Link>

@@ -1,0 +1,67 @@
+'use client';
+
+import { Header } from '@/components/Header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Mail, MapPin, Phone } from 'lucide-react';
+
+export default function Contacts() {
+  return (
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
+      <main className="flex-1 container mx-auto py-12 px-4">
+        <h1 className="text-4xl font-headline font-bold mb-8 text-center">Contact Us</h1>
+        <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+          We're here to help with all your automobile part needs. Reach out to us through any of the channels below.
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Our Location</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="aspect-video w-full overflow-hidden rounded-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195071.0913982488!2d44.34758037340321!3d40.18231934963538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2dab8fc8b5b%3A0x3d1423904554a659!2sYerevan%2C%20Armenia!5e0!3m2!1sen!2s!4v1626785253874!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Get In Touch</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6 text-lg">
+              <div className="flex items-center gap-4">
+                <MapPin className="h-6 w-6 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Address</h3>
+                  <p className="text-muted-foreground">123 Innovation Drive, Yerevan, Armenia</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <Phone className="h-6 w-6 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Phone</h3>
+                  <a href="tel:+37412345678" className="text-muted-foreground hover:text-primary transition-colors">+374 12 345 678</a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <Mail className="h-6 w-6 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Email</h3>
+                  <a href="mailto:contact@solution.am" className="text-muted-foreground hover:text-primary transition-colors">contact@solution.am</a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+    </div>
+  );
+}
