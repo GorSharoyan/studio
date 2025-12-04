@@ -8,10 +8,10 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Handshake, Mail, MapPin, MessageSquare, ShoppingCart, Star } from 'lucide-react';
+import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star } from 'lucide-react';
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
   const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
   
   const actionItems = [
@@ -197,11 +197,15 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start gap-2">
                 <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-muted-foreground" />
-                    <a href="mailto:contact@solution.am" className="text-sm hover:text-primary">contact@solution.am</a>
+                    <a href="mailto:info@solution.am" className="text-sm hover:text-primary">info@solution.am</a>
+                </div>
+                 <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-muted-foreground" />
+                    <a href="tel:+37491989595" className="text-sm hover:text-primary">+37491989595</a>
                 </div>
                 <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">123 Innovation Drive, Tech City</span>
+                    <span className="text-sm">Azatutyan 63,0037,Kanaker-Zeytun,Yerevan Armenia</span>
                 </div>
             </div>
           </div>

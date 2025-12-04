@@ -41,21 +41,21 @@ export default function Contacts() {
                 <MapPin className="h-6 w-6 text-primary" />
                 <div>
                   <h3 className="font-semibold">Address</h3>
-                  <p className="text-muted-foreground">123 Innovation Drive, Yerevan, Armenia</p>
+                  <p className="text-muted-foreground">Azatutyan 63,0037,Kanaker-Zeytun,Yerevan Armenia</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-6 w-6 text-primary" />
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <a href="tel:+37412345678" className="text-muted-foreground hover:text-primary transition-colors">+374 12 345 678</a>
+                  <a href="tel:+37491989595" className="text-muted-foreground hover:text-primary transition-colors">+37491989595</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-6 w-6 text-primary" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <a href="mailto:contact@solution.am" className="text-muted-foreground hover:text-primary transition-colors">contact@solution.am</a>
+                  <a href="mailto:info@solution.am" className="text-muted-foreground hover:text-primary transition-colors">info@solution.am</a>
                 </div>
               </div>
             </CardContent>
