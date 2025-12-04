@@ -58,9 +58,8 @@ export function Header() {
         <div className="flex flex-1 items-center justify-between space-x-4 md:justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center gap-2">
+              <Button variant="ghost">
                 <span>{selectedLanguage.flag}</span>
-                <span className="hidden sm:inline">{selectedLanguage.name}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
