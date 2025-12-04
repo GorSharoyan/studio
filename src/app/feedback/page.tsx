@@ -14,19 +14,22 @@ import { Loader2, ThumbsUp } from 'lucide-react';
 import { useState } from 'react';
 import { StarRating } from '@/components/StarRating';
 import { useRouter } from 'next/navigation';
-
-const formSchema = z.object({
-  firstName: z.string().min(2, { message: 'First name must be at least 2 characters.' }),
-  lastName: z.string().min(2, { message: 'Last name must be at least 2 characters.' }),
-  feedback: z.string().min(10, { message: 'Feedback must be at least 10 characters.' }).max(500),
-});
+import { useLanguage } from '@/hooks/use-language';
 
 export default function FeedbackPage() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
+
+  const formSchema = z.object({
+    firstName: z.string().min(2, { message: t('feedback.validation.firstNameMin') }),
+    lastName: z.string().min(2, { message: t('feedback.validation.lastNameMin') }),
+    feedback: z.string().min(10, { message: t('feedback.validation.feedbackMin') }).max(500),
+  });
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,8 +54,8 @@ export default function FeedbackPage() {
   const handleRatingSubmit = (rating: number) => {
     console.log(`Rating submitted: ${rating}`);
     toast({
-      title: 'Thank you!',
-      description: "Your feedback and rating have been sent to the administrator for review.",
+      title: t('feedback.submitted.ratingSuccessTitle'),
+      description: t('feedback.submitted.ratingSuccessDescription'),
     });
     router.push('/');
   };
@@ -64,17 +67,17 @@ export default function FeedbackPage() {
         <Card className="w-full max-w-2xl shadow-lg">
           <CardHeader>
             <CardTitle className="text-3xl font-headline font-bold text-center">
-              {isSubmitted ? `Thank You, ${submittedName}!` : 'Leave a Feedback'}
+              {isSubmitted ? t('feedback.submitted.title').replace('{name}', submittedName) : t('feedback.title')}
             </CardTitle>
             <CardDescription className="text-center text-lg text-muted-foreground pt-2">
-              {isSubmitted ? "As a final step, please rate your experience." : "We'd love to hear from you! Please share your thoughts with us."}
+              {isSubmitted ? t('feedback.submitted.description') : t('feedback.description')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             {isSubmitted ? (
               <div className="text-center">
                 <ThumbsUp className="h-16 w-16 mx-auto text-primary mb-4" />
-                <p className="mb-6">Your feedback has been received.</p>
+                <p className="mb-6">{t('feedback.submitted.received')}</p>
                 <StarRating onSubmit={handleRatingSubmit} />
               </div>
             ) : (
@@ -86,9 +89,9 @@ export default function FeedbackPage() {
                       name="firstName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>First Name</FormLabel>
+                          <FormLabel>{t('feedback.form.firstName')}</FormLabel>
                           <FormControl>
-                            <Input placeholder="John" {...field} />
+                            <Input placeholder={t('feedback.form.firstNamePlaceholder')} {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -99,9 +102,9 @@ export default function FeedbackPage() {
                       name="lastName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Last Name</FormLabel>
+                          <FormLabel>{t('feedback.form.lastName')}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Doe" {...field} />
+                            <Input placeholder={t('feedback.form.lastNamePlaceholder')} {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -113,10 +116,10 @@ export default function FeedbackPage() {
                     name="feedback"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Feedback</FormLabel>
+                        <FormLabel>{t('feedback.form.yourFeedback')}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell us what you think..."
+                            placeholder={t('feedback.form.yourFeedbackPlaceholder')}
                             className="min-h-[120px]"
                             {...field}
                           />
@@ -127,7 +130,7 @@ export default function FeedbackPage() {
                   />
                   <Button type="submit" disabled={isLoading} className="w-full text-lg py-6">
                     {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
-                    Submit Feedback
+                    {t('feedback.form.submit')}
                   </Button>
                 </form>
               </Form>

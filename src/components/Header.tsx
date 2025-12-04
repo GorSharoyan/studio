@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,18 +22,7 @@ import Image from 'next/image';
 import { ScrollArea } from './ui/scroll-area';
 import { Separator } from './ui/separator';
 import { Badge } from './ui/badge';
-
-type Language = {
-  code: string;
-  name: string;
-  flag: string;
-};
-
-const languages: Language[] = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'am', name: 'Հայերեն', flag: '🇦🇲' },
-];
+import { useLanguage, languages, Language } from '@/hooks/use-language';
 
 const productImages = [
     { id: 'product-1', url: 'https://picsum.photos/seed/p1/400/300', hint: 'brake pads' },
@@ -53,8 +41,8 @@ const getProductImage = (imageId: string) => {
 
 
 export function Header() {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
   const { cart, removeFromCart, updateQuantity, getTotalPrice } = useCart();
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -70,19 +58,19 @@ export function Header() {
               href="/"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Home
+              {t('header.home')}
             </Link>
             <Link
               href="/shop"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Shop
+              {t('header.shop')}
             </Link>
             <Link
               href="/contacts"
               className="transition-colors hover:text-foreground/80 text-foreground"
             >
-              Contacts
+              {t('header.contacts')}
             </Link>
           </nav>
         </div>
@@ -96,12 +84,12 @@ export function Header() {
                   {cart.reduce((total, item) => total + item.quantity, 0)}
                 </Badge>
               )}
-              <span className="sr-only">Shopping Cart</span>
+              <span className="sr-only">{t('header.cart.title')}</span>
             </Button>
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Shopping Cart</SheetTitle>
+              <SheetTitle>{t('header.cart.title')}</SheetTitle>
             </SheetHeader>
             {cart.length > 0 ? (
               <>
@@ -132,16 +120,16 @@ export function Header() {
                 <SheetFooter className="mt-4 pt-4 border-t">
                   <div className="w-full">
                     <div className="flex justify-between font-semibold text-lg">
-                      <span>Total</span>
+                      <span>{t('header.cart.total')}</span>
                       <span>${getTotalPrice()}</span>
                     </div>
-                    <Button className="w-full mt-4">Checkout</Button>
+                    <Button className="w-full mt-4">{t('header.cart.checkout')}</Button>
                   </div>
                 </SheetFooter>
               </>
             ) : (
               <div className="flex h-full items-center justify-center">
-                <p className="text-muted-foreground">Your cart is empty.</p>
+                <p className="text-muted-foreground">{t('header.cart.empty')}</p>
               </div>
             )}
             
@@ -150,14 +138,14 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="w-8 h-8 p-0">
-                <span>{selectedLanguage.flag}</span>
+                <span>{language.flag}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {languages.map(lang => (
                 <DropdownMenuItem
                   key={lang.code}
-                  onSelect={() => setSelectedLanguage(lang)}
+                  onSelect={() => setLanguage(lang.code)}
                 >
                   <span className="mr-2">{lang.flag}</span>
                   {lang.name}

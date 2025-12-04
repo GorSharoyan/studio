@@ -1,0 +1,137 @@
+
+{
+  "header": {
+    "home": "Home",
+    "shop": "Shop",
+    "contacts": "Contacts",
+    "dealer": "Become a Dealer",
+    "feedback": "Leave a Feedback",
+    "cart": {
+      "title": "Shopping Cart",
+      "total": "Total",
+      "checkout": "Checkout",
+      "empty": "Your cart is empty."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Solution.am",
+      "subtitle": "As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs."
+    },
+    "about": {
+      "title": "About Solution.am",
+      "description": "Established in 2000, Solution.am is a leading reseller and importer of high-quality automobile parts, serving customers all across Armenia. With a rich history of collaboration and a commitment to excellence, we provide creative and reliable solutions for all your vehicle needs."
+    },
+    "actions": {
+      "dealer": "Become a Dealer",
+      "shop": "Shop Now",
+      "feedback": "Leave a Feedback",
+      "learnMore": "Learn More"
+    },
+    "brands": {
+      "title": "Our Brands"
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "customer1": {
+        "quote": "Solution.am has the best selection of parts. I found exactly what I needed for my car, and the quality was top-notch. Highly recommended!"
+      },
+      "customer2": {
+        "quote": "The customer service is outstanding. They helped me find the right part and it arrived faster than I expected. I'll definitely be a returning customer."
+      },
+      "customer3": {
+        "quote": "As a mechanic, I rely on quality parts. Solution.am delivers every time. Their creative solutions and reliable inventory make my job easier."
+      },
+      "customer4": {
+        "quote": "I was looking for a very specific part and they had it in stock! The website is easy to navigate and the whole process was seamless."
+      }
+    },
+    "footer": {
+      "tagline": "Creative Solutions for Modern Problems",
+      "address": "Azatutyan 63,0037,Kanaker-Zeytun,Yerevan Armenia",
+      "copyright": "© 2023 Solution.am. All rights reserved."
+    }
+  },
+  "contacts": {
+    "title": "Contact Us",
+    "description": "We're here to help with all your automobile part needs. Reach out to us through any of the channels below.",
+    "location": "Our Location",
+    "getInTouch": "Get In Touch",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "dealer": {
+    "title": "Become a Dealer",
+    "description": "Join our network of trusted automobile part resellers. Fill out the form below to get started.",
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Your Company LLC",
+      "contactInfo": "Contact Info (Email or Phone)",
+      "contactInfoPlaceholder": "email@example.com or +374...",
+      "reason": "Why do you want to become a dealer?",
+      "reasonPlaceholder": "Describe your business and why you'd be a great partner...",
+      "submit": "Submit Application",
+      "loading": "Submitting...",
+      "successTitle": "Application Submitted!",
+      "successDescription": "Thank you for your interest. We will get back to you shortly."
+    },
+    "validation": {
+        "firstNameMin": "First name must be at least 2 characters.",
+        "lastNameMin": "Last name must be at least 2 characters.",
+        "companyNameMin": "Company name must be at least 2 characters.",
+        "contactInfoMin": "Contact information is required.",
+        "reasonMin": "Please provide a reason with at least 10 characters."
+    }
+  },
+  "feedback": {
+    "title": "Leave a Feedback",
+    "description": "We'd love to hear from you! Please share your thoughts with us.",
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "yourFeedback": "Your Feedback",
+      "yourFeedbackPlaceholder": "Tell us what you think...",
+      "submit": "Submit Feedback",
+      "loading": "Submitting..."
+    },
+    "submitted": {
+      "title": "Thank You, {name}!",
+      "description": "As a final step, please rate your experience.",
+      "received": "Your feedback has been received.",
+      "ratingSuccessTitle": "Thank you!",
+      "ratingSuccessDescription": "Your feedback and rating have been sent to the administrator for review."
+    },
+    "starRating": {
+        "submit": "Submit Rating"
+    },
+    "validation": {
+        "firstNameMin": "First name must be at least 2 characters.",
+        "lastNameMin": "Last name must be at least 2 characters.",
+        "feedbackMin": "Feedback must be at least 10 characters."
+    }
+  },
+  "shop": {
+    "title": "Our Products",
+    "filters": {
+      "title": "Filters",
+      "priceRange": "Price Range",
+      "country": "Country",
+      "allCountries": "All Countries",
+      "productType": "Product Type",
+      "allTypes": "All Types"
+    },
+    "addToCart": "Add to Cart",
+    "noProducts": "No products match your current filters.",
+    "cartToast": {
+        "title": "Added to cart!",
+        "description": "{productName} has been added to your cart."
+    }
+  }
+}

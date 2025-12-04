@@ -12,18 +12,20 @@ import { Header } from '@/components/Header';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
-
-const formSchema = z.object({
-  firstName: z.string().min(2, { message: 'First name must be at least 2 characters.' }),
-  lastName: z.string().min(2, { message: 'Last name must be at least 2 characters.' }),
-  companyName: z.string().min(2, { message: 'Company name must be at least 2 characters.' }),
-  contactInfo: z.string().min(5, { message: 'Contact information is required.' }),
-  reason: z.string().min(10, { message: 'Please provide a reason with at least 10 characters.' }).max(500),
-});
+import { useLanguage } from '@/hooks/use-language';
 
 export default function DealerPage() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+
+  const formSchema = z.object({
+    firstName: z.string().min(2, { message: t('dealer.validation.firstNameMin') }),
+    lastName: z.string().min(2, { message: t('dealer.validation.lastNameMin') }),
+    companyName: z.string().min(2, { message: t('dealer.validation.companyNameMin') }),
+    contactInfo: z.string().min(5, { message: t('dealer.validation.contactInfoMin') }),
+    reason: z.string().min(10, { message: t('dealer.validation.reasonMin') }).max(500),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,8 +46,8 @@ export default function DealerPage() {
 
     console.log(values);
     toast({
-      title: 'Application Submitted!',
-      description: "Thank you for your interest. We will get back to you shortly.",
+      title: t('dealer.form.successTitle'),
+      description: t('dealer.form.successDescription'),
     });
     form.reset();
   }
@@ -56,9 +58,9 @@ export default function DealerPage() {
       <main className="flex-1 container mx-auto py-12 px-4 flex items-center justify-center">
         <Card className="w-full max-w-2xl shadow-lg">
           <CardHeader>
-            <CardTitle className="text-3xl font-headline font-bold text-center">Become a Dealer</CardTitle>
+            <CardTitle className="text-3xl font-headline font-bold text-center">{t('dealer.title')}</CardTitle>
             <CardDescription className="text-center text-lg text-muted-foreground pt-2">
-              Join our network of trusted automobile part resellers. Fill out the form below to get started.
+              {t('dealer.description')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -70,9 +72,9 @@ export default function DealerPage() {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>{t('dealer.form.firstName')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="John" {...field} />
+                          <Input placeholder={t('dealer.form.firstNamePlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -83,9 +85,9 @@ export default function DealerPage() {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel>{t('dealer.form.lastName')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Doe" {...field} />
+                          <Input placeholder={t('dealer.form.lastNamePlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -97,9 +99,9 @@ export default function DealerPage() {
                   name="companyName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company Name</FormLabel>
+                      <FormLabel>{t('dealer.form.companyName')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Company LLC" {...field} />
+                        <Input placeholder={t('dealer.form.companyNamePlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -110,9 +112,9 @@ export default function DealerPage() {
                   name="contactInfo"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Contact Info (Email or Phone)</FormLabel>
+                      <FormLabel>{t('dealer.form.contactInfo')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="email@example.com or +374..." {...field} />
+                        <Input placeholder={t('dealer.form.contactInfoPlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -123,10 +125,10 @@ export default function DealerPage() {
                   name="reason"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Why do you want to become a dealer?</FormLabel>
+                      <FormLabel>{t('dealer.form.reason')}</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Describe your business and why you'd be a great partner..."
+                          placeholder={t('dealer.form.reasonPlaceholder')}
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -137,7 +139,7 @@ export default function DealerPage() {
                 />
                 <Button type="submit" disabled={isLoading} className="w-full text-lg py-6">
                   {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
-                  Submit Application
+                  {t('dealer.form.submit')}
                 </Button>
               </form>
             </Form>

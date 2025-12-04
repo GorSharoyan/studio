@@ -2,21 +2,23 @@
 
 import { Header } from '@/components/Header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useLanguage } from '@/hooks/use-language';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Contacts() {
+  const { t } = useLanguage();
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 container mx-auto py-12 px-4">
-        <h1 className="text-4xl font-headline font-bold mb-8 text-center">Contact Us</h1>
+        <h1 className="text-4xl font-headline font-bold mb-8 text-center">{t('contacts.title')}</h1>
         <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-          We're here to help with all your automobile part needs. Reach out to us through any of the channels below.
+          {t('contacts.description')}
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           <Card>
             <CardHeader>
-              <CardTitle>Our Location</CardTitle>
+              <CardTitle>{t('contacts.location')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="aspect-video w-full overflow-hidden rounded-lg">
@@ -34,27 +36,27 @@ export default function Contacts() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Get In Touch</CardTitle>
+              <CardTitle>{t('contacts.getInTouch')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6 text-lg">
               <div className="flex items-center gap-4">
                 <MapPin className="h-6 w-6 text-primary" />
                 <div>
-                  <h3 className="font-semibold">Address</h3>
-                  <p className="text-muted-foreground">Azatutyan 63,0037,Kanaker-Zeytun,Yerevan Armenia</p>
+                  <h3 className="font-semibold">{t('contacts.address')}</h3>
+                  <p className="text-muted-foreground">{t('home.footer.address')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-6 w-6 text-primary" />
                 <div>
-                  <h3 className="font-semibold">Phone</h3>
+                  <h3 className="font-semibold">{t('contacts.phone')}</h3>
                   <a href="tel:+37491989595" className="text-muted-foreground hover:text-primary transition-colors">+37491989595</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-6 w-6 text-primary" />
                 <div>
-                  <h3 className="font-semibold">Email</h3>
+                  <h3 className="font-semibold">{t('contacts.email')}</h3>
                   <a href="mailto:info@solution.am" className="text-muted-foreground hover:text-primary transition-colors">info@solution.am</a>
                 </div>
               </div>

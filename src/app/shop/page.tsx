@@ -13,6 +13,7 @@ import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/hooks/use-cart';
 import type { Product } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/hooks/use-language';
 
 const products: Product[] = [
   { id: 1, name: 'Brake Pads', price: 50, country: 'Germany', type: 'Brakes', imageId: 'product-1' },
@@ -42,6 +43,7 @@ export default function Shop() {
   const [productType, setProductType] = useState('all');
   const { addToCart } = useCart();
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const countries = useMemo(() => ['all', ...new Set(products.map(p => p.country))], []);
   const productTypes = useMemo(() => ['all', ...new Set(products.map(p => p.type))], []);
@@ -63,8 +65,8 @@ export default function Shop() {
   const handleAddToCart = (product: Product) => {
     addToCart(product);
     toast({
-      title: 'Added to cart!',
-      description: `${product.name} has been added to your cart.`,
+      title: t('shop.cartToast.title'),
+      description: t('shop.cartToast.description').replace('{productName}', product.name),
     });
   };
 
@@ -72,14 +74,14 @@ export default function Shop() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 container mx-auto py-8 px-4">
-        <h1 className="text-4xl font-headline font-bold mb-8">Our Products</h1>
+        <h1 className="text-4xl font-headline font-bold mb-8">{t('shop.title')}</h1>
         <div className="grid md:grid-cols-4 gap-8">
           {/* Filters */}
           <aside className="md:col-span-1 bg-card p-6 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-semibold mb-6">Filters</h2>
+            <h2 className="text-2xl font-semibold mb-6">{t('shop.filters.title')}</h2>
             <div className="space-y-6">
               <div>
-                <label className="text-lg font-medium">Price Range</label>
+                <label className="text-lg font-medium">{t('shop.filters.priceRange')}</label>
                 <div className="mt-2">
                   <Slider
                     min={0}
@@ -96,25 +98,25 @@ export default function Shop() {
               </div>
               <Separator />
               <div>
-                <label htmlFor="country-select" className="text-lg font-medium">Country</label>
+                <label htmlFor="country-select" className="text-lg font-medium">{t('shop.filters.country')}</label>
                 <Select value={country} onValueChange={setCountry}>
                   <SelectTrigger id="country-select" className="mt-2">
                     <SelectValue placeholder="Select a country" />
                   </SelectTrigger>
                   <SelectContent>
-                    {countries.map(c => <SelectItem key={c} value={c}>{c === 'all' ? 'All Countries' : c}</SelectItem>)}
+                    {countries.map(c => <SelectItem key={c} value={c}>{c === 'all' ? t('shop.filters.allCountries') : c}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
               <Separator />
               <div>
-                <label htmlFor="type-select" className="text-lg font-medium">Product Type</label>
+                <label htmlFor="type-select" className="text-lg font-medium">{t('shop.filters.productType')}</label>
                 <Select value={productType} onValueChange={setProductType}>
                   <SelectTrigger id="type-select" className="mt-2">
                     <SelectValue placeholder="Select a product type" />
                   </SelectTrigger>
                   <SelectContent>
-                    {productTypes.map(t => <SelectItem key={t} value={t}>{t === 'all' ? 'All Types' : t}</SelectItem>)}
+                    {productTypes.map(t => <SelectItem key={t} value={t}>{t === 'all' ? t('shop.filters.allTypes') : t}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
@@ -154,7 +156,7 @@ export default function Shop() {
                                               <p className="font-bold text-primary text-lg">${product.price}</p>
                                               <p className="text-sm text-muted-foreground">{product.type} from {product.country}</p>
                                           </div>
-                                          <Button className="w-full mt-4" onClick={() => handleAddToCart(product)}>Add to Cart</Button>
+                                          <Button className="w-full mt-4" onClick={() => handleAddToCart(product)}>{t('shop.addToCart')}</Button>
                                         </CardContent>
                                     </Card>
                                 </div>
@@ -167,7 +169,7 @@ export default function Shop() {
                 </Carousel>
             ) : (
                 <div className="flex items-center justify-center h-full bg-card rounded-lg shadow-sm p-8">
-                    <p className="text-muted-foreground text-lg">No products match your current filters.</p>
+                    <p className="text-muted-foreground text-lg">{t('shop.noProducts')}</p>
                 </div>
             )}
           </section>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
+import { useLanguage } from '@/hooks/use-language';
 
 type StarRatingProps = {
   totalStars?: number;
@@ -13,6 +14,7 @@ type StarRatingProps = {
 export function StarRating({ totalStars = 5, onSubmit }: StarRatingProps) {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const { t } = useLanguage();
 
   const handleSubmit = () => {
     if (rating > 0) {
@@ -47,7 +49,7 @@ export function StarRating({ totalStars = 5, onSubmit }: StarRatingProps) {
         })}
       </div>
       <Button onClick={handleSubmit} disabled={rating === 0}>
-        Submit Rating
+        {t('feedback.starRating.submit')}
       </Button>
     </div>
   );

@@ -9,40 +9,42 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star } from 'lucide-react';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function Home() {
+  const { t } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
   const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
   
   const actionItems = [
-    { title: 'Become a Dealer', icon: Handshake, href: '/dealer' },
-    { title: 'Shop Now', icon: ShoppingCart, href: '/shop' },
-    { title: 'Leave a Feedback', icon: MessageSquare, href: '/feedback' },
+    { title: t('home.actions.dealer'), icon: Handshake, href: '/dealer' },
+    { title: t('home.actions.shop'), icon: ShoppingCart, href: '/shop' },
+    { title: t('home.actions.feedback'), icon: MessageSquare, href: '/feedback' },
   ];
 
   const testimonials = [
     {
       name: 'Aram P.',
       initials: 'AP',
-      quote: 'Solution.am has the best selection of parts. I found exactly what I needed for my car, and the quality was top-notch. Highly recommended!',
+      quote: t('home.testimonials.customer1.quote'),
       rating: 5,
     },
     {
       name: 'Sona G.',
       initials: 'SG',
-      quote: "The customer service is outstanding. They helped me find the right part and it arrived faster than I expected. I'll definitely be a returning customer.",
+      quote: t('home.testimonials.customer2.quote'),
       rating: 5,
     },
     {
       name: 'David M.',
       initials: 'DM',
-      quote: "As a mechanic, I rely on quality parts. Solution.am delivers every time. Their creative solutions and reliable inventory make my job easier.",
+      quote: t('home.testimonials.customer3.quote'),
       rating: 5,
     },
      {
       name: 'Lilit H.',
       initials: 'LH',
-      quote: 'I was looking for a very specific part and they had it in stock! The website is easy to navigate and the whole process was seamless.',
+      quote: t('home.testimonials.customer4.quote'),
       rating: 4,
     },
   ];
@@ -63,19 +65,19 @@ export default function Home() {
           )}
           <div className="container mx-auto px-4 text-center">
             <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
-              Solution.am
+              {t('home.hero.title')}
             </h1>
             <p className="mt-4 text-lg max-w-2xl mx-auto">
-              As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs.
+              {t('home.hero.subtitle')}
             </p>
           </div>
         </div>
 
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-headline font-bold mb-4">About Solution.am</h2>
+            <h2 className="text-3xl font-headline font-bold mb-4">{t('home.about.title')}</h2>
             <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-              Established in 2000, Solution.am is a leading reseller and importer of high-quality automobile parts, serving customers all across Armenia. With a rich history of collaboration and a commitment to excellence, we provide creative and reliable solutions for all your vehicle needs.
+              {t('home.about.description')}
             </p>
           </div>
         </section>
@@ -98,7 +100,7 @@ export default function Home() {
                                         <item.icon className="w-12 h-12 text-primary" />
                                         <span className="text-xl font-semibold">{item.title}</span>
                                         <Button asChild>
-                                          <Link href={item.href}>Learn More</Link>
+                                          <Link href={item.href}>{t('home.actions.learnMore')}</Link>
                                         </Button>
                                     </CardContent>
                                 </Card>
@@ -114,7 +116,7 @@ export default function Home() {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-headline font-bold text-center mb-8">Our Brands</h2>
+            <h2 className="text-3xl font-headline font-bold text-center mb-8">{t('home.brands.title')}</h2>
             <Carousel
                 opts={{
                     align: "start",
@@ -149,7 +151,7 @@ export default function Home() {
 
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-headline font-bold text-center mb-12">What Our Customers Say</h2>
+            <h2 className="text-3xl font-headline font-bold text-center mb-12">{t('home.testimonials.title')}</h2>
             <Carousel
               opts={{
                 align: "start",
@@ -192,7 +194,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
                 <p className="font-bold text-lg">Solution.am</p>
-                <p className="text-sm text-muted-foreground">Creative Solutions for Modern Problems</p>
+                <p className="text-sm text-muted-foreground">{t('home.footer.tagline')}</p>
             </div>
             <div className="flex flex-col items-center md:items-start gap-2">
                 <div className="flex items-center gap-2">
@@ -205,12 +207,12 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Azatutyan 63,0037,Kanaker-Zeytun,Yerevan Armenia</span>
+                    <span className="text-sm">{t('home.footer.address')}</span>
                 </div>
             </div>
           </div>
           <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-            <p>&copy; 2023 Solution.am. All rights reserved.</p>
+            <p>{t('home.footer.copyright')}</p>
           </div>
         </div>
       </footer>
