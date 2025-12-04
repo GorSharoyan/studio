@@ -62,6 +62,11 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
+      <div className="bg-secondary text-secondary-foreground py-2">
+        <div className="container mx-auto text-center text-sm">
+          <p>Your trusted partner for quality automobile parts in Armenia.</p>
+        </div>
+      </div>
       <main className="container mx-auto flex-1 px-4 pb-12">
         <div className="py-8 md:py-12 text-center">
           <div className="flex items-center justify-center gap-4">
