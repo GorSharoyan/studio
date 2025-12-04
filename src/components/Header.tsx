@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
+import { ShoppingCart } from 'lucide-react';
 
 type Language = {
   code: string;
@@ -55,10 +56,14 @@ export function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-between space-x-4 md:justify-end">
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <Button variant="ghost" size="icon">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="sr-only">Shopping Cart</span>
+          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost">
+              <Button variant="ghost" size="icon" className="w-8 h-8">
                 <span>{selectedLanguage.flag}</span>
               </Button>
             </DropdownMenuTrigger>
