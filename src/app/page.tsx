@@ -65,10 +65,19 @@ export default function Home() {
               Solution.am
             </h1>
             <p className="mt-4 text-lg max-w-2xl mx-auto">
-              As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
+              As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs.
             </p>
           </div>
         </div>
+
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-headline font-bold mb-4">About Solution.am</h2>
+            <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+              Established in 2000, Solution.am is a leading reseller and importer of high-quality automobile parts, serving customers all across Armenia. With a rich history of collaboration and a commitment to excellence, we provide creative and reliable solutions for all your vehicle needs.
+            </p>
+          </div>
+        </section>
 
         <section className="py-12">
           <div className="container mx-auto px-4">
