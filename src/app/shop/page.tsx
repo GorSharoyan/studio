@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { products } from '@/lib/products';
+import { Plus, Minus } from 'lucide-react';
 
 export default function Shop() {
   const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
@@ -24,6 +25,7 @@ export default function Shop() {
   const [productType, setProductType] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [dialogQuantity, setDialogQuantity] = useState(1);
   const { addToCart } = useCart();
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -46,8 +48,13 @@ export default function Shop() {
     return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/400x300', imageHint: 'placeholder' };
   }
 
-  const handleAddToCart = (product: Product) => {
-    addToCart(product);
+  const handleOpenDialog = (product: Product) => {
+    setSelectedProduct(product);
+    setDialogQuantity(1);
+  }
+
+  const handleAddToCart = (product: Product, quantity: number) => {
+    addToCart(product, quantity);
     toast({
       title: t('shop.cartToast.title'),
       description: t('shop.cartToast.description').replace('{productName}', product.name),
@@ -126,7 +133,7 @@ export default function Shop() {
                 {filteredProducts.map(product => {
                   const image = getProductImage(product.imageId);
                   return (
-                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer flex flex-col" onClick={() => setSelectedProduct(product)}>
+                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer flex flex-col" onClick={() => handleOpenDialog(product)}>
                       <CardHeader className="p-0">
                         <div className="aspect-[4/3] relative">
                           <Image
@@ -185,8 +192,25 @@ export default function Shop() {
               </div>
             </div>
             <DialogFooter className="sm:justify-between items-center">
-              <p className="text-2xl font-bold text-primary">${selectedProduct.price}</p>
-              <Button size="lg" onClick={() => handleAddToCart(selectedProduct)}>{t('shop.addToCart')}</Button>
+                <div className="flex items-center gap-4">
+                    <p className="text-2xl font-bold text-primary">${selectedProduct.price}</p>
+                    <div className="flex items-center gap-2">
+                        <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setDialogQuantity(q => Math.max(1, q - 1))}>
+                            <Minus className="h-4 w-4" />
+                        </Button>
+                        <Input 
+                            type="number" 
+                            className="w-16 h-8 text-center" 
+                            value={dialogQuantity} 
+                            onChange={(e) => setDialogQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                            min="1"
+                        />
+                        <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setDialogQuantity(q => q + 1)}>
+                            <Plus className="h-4 w-4" />
+                        </Button>
+                    </div>
+                </div>
+              <Button size="lg" onClick={() => handleAddToCart(selectedProduct, dialogQuantity)}>{t('shop.addToCart')}</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
