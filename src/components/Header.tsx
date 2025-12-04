@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,12 +18,13 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetFooter,
+  SheetClose,
 } from '@/components/ui/sheet';
 import Image from 'next/image';
 import { ScrollArea } from './ui/scroll-area';
-import { Separator } from './ui/separator';
 import { Badge } from './ui/badge';
-import { useLanguage, languages, Language } from '@/hooks/use-language';
+import { useLanguage, languages } from '@/hooks/use-language';
+import { useToast } from '@/hooks/use-toast';
 
 const productImages = [
     { id: 'product-1', url: 'https://picsum.photos/seed/p1/400/300', hint: 'brake pads' },
@@ -39,10 +41,20 @@ const getProductImage = (imageId: string) => {
     return productImages.find(img => img.id === imageId) || { url: 'https://placehold.co/64x64', hint: 'placeholder'};
 }
 
-
 export function Header() {
-  const { cart, removeFromCart, updateQuantity, getTotalPrice } = useCart();
+  const { cart, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
   const { language, setLanguage, t } = useLanguage();
+  const router = useRouter();
+  const { toast } = useToast();
+
+  const handleCheckout = () => {
+    toast({
+      title: t('header.cart.checkoutUnavailable.title'),
+      description: t('header.cart.checkoutUnavailable.description'),
+    });
+    clearCart();
+    router.push('/contacts');
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -123,7 +135,9 @@ export function Header() {
                       <span>{t('header.cart.total')}</span>
                       <span>${getTotalPrice()}</span>
                     </div>
-                    <Button className="w-full mt-4">{t('header.cart.checkout')}</Button>
+                    <SheetClose asChild>
+                      <Button className="w-full mt-4" onClick={handleCheckout}>{t('header.cart.checkout')}</Button>
+                    </SheetClose>
                   </div>
                 </SheetFooter>
               </>

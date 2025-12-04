@@ -10,7 +10,11 @@
       "title": "Shopping Cart",
       "total": "Total",
       "checkout": "Checkout",
-      "empty": "Your cart is empty."
+      "empty": "Your cart is empty.",
+      "checkoutUnavailable": {
+        "title": "Checkout Unavailable",
+        "description": "Online checkout is currently not available. Please contact us by phone to complete your order."
+      }
     }
   },
   "home": {
