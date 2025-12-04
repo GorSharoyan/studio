@@ -10,8 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Separator } from '@/components/ui/separator';
+import { useCart } from '@/hooks/use-cart';
+import type { Product } from '@/lib/types';
+import { useToast } from '@/hooks/use-toast';
 
-const products = [
+const products: Product[] = [
   { id: 1, name: 'Brake Pads', price: 50, country: 'Germany', type: 'Brakes', imageId: 'product-1' },
   { id: 2, name: 'Oil Filter', price: 15, country: 'USA', type: 'Engine', imageId: 'product-2' },
   { id: 3, name: 'Air Filter', price: 25, country: 'Japan', type: 'Engine', imageId: 'product-3' },
@@ -37,6 +40,8 @@ export default function Shop() {
   const [priceRange, setPriceRange] = useState([0, 300]);
   const [country, setCountry] = useState('all');
   const [productType, setProductType] = useState('all');
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   const countries = useMemo(() => ['all', ...new Set(products.map(p => p.country))], []);
   const productTypes = useMemo(() => ['all', ...new Set(products.map(p => p.type))], []);
@@ -54,6 +59,14 @@ export default function Shop() {
   const getProductImage = (imageId: string) => {
       return productImages.find(img => img.id === imageId) || { url: 'https://placehold.co/400x300', hint: 'placeholder'};
   }
+  
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+    toast({
+      title: 'Added to cart!',
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -121,7 +134,7 @@ export default function Shop() {
                         {filteredProducts.map(product => {
                             const image = getProductImage(product.imageId);
                             return (
-                                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
+                                <CarouselItem key={product.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
                                 <div className="p-1 h-full">
                                     <Card className="h-full flex flex-col">
                                         <CardHeader>
@@ -141,7 +154,7 @@ export default function Shop() {
                                               <p className="font-bold text-primary text-lg">${product.price}</p>
                                               <p className="text-sm text-muted-foreground">{product.type} from {product.country}</p>
                                           </div>
-                                          <Button className="w-full mt-4">Add to Cart</Button>
+                                          <Button className="w-full mt-4" onClick={() => handleAddToCart(product)}>Add to Cart</Button>
                                         </CardContent>
                                     </Card>
                                 </div>
