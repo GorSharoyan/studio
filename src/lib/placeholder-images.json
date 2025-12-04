@@ -7,40 +7,46 @@
       "imageHint": "auto repair"
     },
     {
-      "id": "brand-logo-1",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1584441405886-bc91be61e56a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-volkswagen",
+      "description": "Volkswagen brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1637760561008-c7423e2237f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxWb2xrc3dhZ2VuJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Volkswagen logo"
     },
     {
-      "id": "brand-logo-2",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-audi",
+      "description": "Audi brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1589981941359-27220729817b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxBdWRpJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Audi logo"
     },
     {
-      "id": "brand-logo-3",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1612810806563-4cb8265db55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-mercedes",
+      "description": "Mercedes brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxNZXJjZWRlcyUyMGxvZ298ZW58MHx8fHwxNzY0ODQzMDA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Mercedes logo"
     },
     {
-      "id": "brand-logo-4",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-bmw",
+      "description": "BMW brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1615372978007-4833be663051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxCTVclMjBsb2dvfGVufDB8fHx8MTc2NDg0MzAwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "BMW logo"
     },
     {
-      "id": "brand-logo-5",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-porsche",
+      "description": "Porsche brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1551035418-0b04d6d183be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxQb3JzY2hlJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Porsche logo"
     },
     {
-      "id": "brand-logo-6",
-      "description": "Placeholder for a brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "logo"
+      "id": "brand-logo-renault",
+      "description": "Renault brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1614200471730-32dc6541b53b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxSZW5hdWx0JTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Renault logo"
+    },
+    {
+      "id": "brand-logo-peugeot",
+      "description": "Peugeot brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1748435102077-cd0853b76a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxQZXVnZW90JTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Peugeot logo"
     }
   ]
 }
