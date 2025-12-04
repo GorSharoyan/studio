@@ -116,7 +116,7 @@ export default function Shop() {
                     <SelectValue placeholder="Select a product type" />
                   </SelectTrigger>
                   <SelectContent>
-                    {productTypes.map(t => <SelectItem key={t} value={t}>{t === 'all' ? t('shop.filters.allTypes') : t}</SelectItem>)}
+                    {productTypes.map(type => <SelectItem key={type} value={type}>{type === 'all' ? t('shop.filters.allTypes') : type}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
