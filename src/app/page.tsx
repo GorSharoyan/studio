@@ -1,22 +1,22 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Handshake, Mail, MapPin, MessageSquare, ShoppingCart, Star } from 'lucide-react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
   const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
   
   const actionItems = [
-    { title: 'Become a Dealer', icon: Handshake },
-    { title: 'Shop Now', icon: ShoppingCart },
-    { title: 'Leave a Feedback', icon: MessageSquare },
+    { title: 'Become a Dealer', icon: Handshake, href: '/dealer' },
+    { title: 'Shop Now', icon: ShoppingCart, href: '/shop' },
+    { title: 'Leave a Feedback', icon: MessageSquare, href: '/contacts' },
   ];
 
   const testimonials = [
@@ -87,7 +87,9 @@ export default function Home() {
                                     <CardContent className="flex flex-col items-center justify-center p-6 gap-4 text-center">
                                         <item.icon className="w-12 h-12 text-primary" />
                                         <span className="text-xl font-semibold">{item.title}</span>
-                                        <Button>Learn More</Button>
+                                        <Button asChild>
+                                          <Link href={item.href}>Learn More</Link>
+                                        </Button>
                                     </CardContent>
                                 </Card>
                             </div>

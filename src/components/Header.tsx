@@ -48,6 +48,12 @@ export function Header() {
               Shop
             </Link>
             <Link
+              href="/dealer"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              Become a Dealer
+            </Link>
+            <Link
               href="/contacts"
               className="transition-colors hover:text-foreground/80 text-foreground"
             >
