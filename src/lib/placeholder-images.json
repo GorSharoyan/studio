@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Background image for the hero section, showing various car parts.",
+      "imageUrl": "https://images.unsplash.com/photo-1663642775693-6628f65358be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXIlMjBwYXJ0c3xlbnwwfHx8fDE3NjQ4MzgzODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car parts"
+    },
+    {
+      "id": "brand-logo-1",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1584441405886-bc91be61e56a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    },
+    {
+      "id": "brand-logo-2",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    },
+    {
+      "id": "brand-logo-3",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1612810806563-4cb8265db55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    },
+    {
+      "id": "brand-logo-4",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    },
+    {
+      "id": "brand-logo-5",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    },
+    {
+      "id": "brand-logo-6",
+      "description": "Placeholder for a brand logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dvfGVufDB8fHx8MTc2NDc2MDYwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo"
+    }
+  ]
 }

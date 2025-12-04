@@ -1,15 +1,19 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { PromptForm } from '@/components/PromptForm';
 import { SolutionsList } from '@/components/SolutionsList';
 import type { Solution } from '@/app/actions';
 import { generate, improve } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Terminal } from 'lucide-react';
+import { Terminal, Mail, MapPin, Handshake, ShoppingCart, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, MapPin } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -18,6 +22,9 @@ export default function Home() {
   const [prompt, setPrompt] = useState('');
   const [isImproving, setIsImproving] = useState<number | null>(null);
   const { toast } = useToast();
+
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+  const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
 
   const handleGenerate = async (newPrompt: string) => {
     setIsLoading(true);
@@ -58,21 +65,64 @@ export default function Home() {
     setSolutions(newSolutions);
     setIsImproving(null);
   };
+  
+  const actionItems = [
+    { title: 'Become a Dealer', icon: Handshake },
+    { title: 'Shop Now', icon: ShoppingCart },
+    { title: 'Leave a Feedback', icon: MessageSquare },
+  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="container mx-auto flex-1 px-4 pb-12">
-        <div className="py-8 md:py-12 text-center">
-          <div>
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Solution.am
+        <div className="relative hero-section text-white py-20 md:py-32 my-8 rounded-lg overflow-hidden">
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover"
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
+          <div className="text-center">
+            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
+              Solution.am
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
+            <p className="mt-4 text-lg max-w-2xl mx-auto">
+              As a leading importer of high-quality automobile parts in Armenia, Solution.am is dedicated to providing reliable and creative solutions for all your vehicle needs. This AI-powered tool helps you find solutions to common automotive problems.
             </p>
           </div>
         </div>
+
+        <section className="py-12">
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full max-w-4xl mx-auto"
+            >
+                <CarouselContent>
+                    {actionItems.map((item, index) => (
+                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                            <div className="p-1">
+                                <Card className="h-full">
+                                    <CardContent className="flex flex-col items-center justify-center p-6 gap-4">
+                                        <item.icon className="w-12 h-12 text-primary" />
+                                        <span className="text-xl font-semibold">{item.title}</span>
+                                        <Button>Learn More</Button>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+        </section>
 
         <div className="mx-auto max-w-3xl">
           <PromptForm onSubmit={handleGenerate} isLoading={isLoading} />
@@ -90,6 +140,40 @@ export default function Home() {
             isImproving={isImproving}
           />
         </div>
+
+        <section className="py-16">
+            <h2 className="text-3xl font-headline font-bold text-center mb-8">Our Brands</h2>
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                    dragFree: true,
+                }}
+                className="w-full max-w-6xl mx-auto"
+            >
+                <CarouselContent>
+                    {brandLogos.map((logo) => (
+                        <CarouselItem key={logo.id} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
+                            <div className="p-1">
+                                <Card>
+                                    <CardContent className="flex aspect-video items-center justify-center p-6">
+                                    <Image 
+                                        src={logo.imageUrl}
+                                        alt={logo.description}
+                                        width={150}
+                                        height={75}
+                                        className="object-contain"
+                                        data-ai-hint={logo.imageHint}
+                                    />
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+        </section>
+
       </main>
       <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto py-8 px-4">
