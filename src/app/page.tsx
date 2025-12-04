@@ -3,17 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
-import { PromptForm } from '@/components/PromptForm';
-import { SolutionsList } from '@/components/SolutionsList';
 import type { Solution } from '@/app/actions';
 import { generate, improve } from '@/app/actions';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Terminal, Mail, MapPin, Handshake, ShoppingCart, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Handshake, Mail, MapPin, MessageSquare, ShoppingCart } from 'lucide-react';
 
 export default function Home() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -123,23 +120,6 @@ export default function Home() {
                 <CarouselNext />
             </Carousel>
         </section>
-
-        <div className="mx-auto max-w-3xl">
-          <PromptForm onSubmit={handleGenerate} isLoading={isLoading} />
-          {error && (
-            <Alert variant="destructive" className="mt-8">
-              <Terminal className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-          <SolutionsList 
-            solutions={solutions} 
-            isLoading={isLoading} 
-            onFeedback={handleFeedback} 
-            isImproving={isImproving}
-          />
-        </div>
 
         <section className="py-16">
             <h2 className="text-3xl font-headline font-bold text-center mb-8">Our Brands</h2>
