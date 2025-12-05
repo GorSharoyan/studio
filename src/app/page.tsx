@@ -48,16 +48,28 @@ export default function Home() {
     },
   ];
 
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <div className="text-foreground py-20 md:py-32 rounded-lg overflow-hidden bg-secondary/20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl text-primary">
+        <div className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden">
+        {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover z-0"
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="relative container mx-auto px-4 text-center z-20">
+            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl text-white">
               {t('home.hero.title')}
             </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
+            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
               {t('home.hero.subtitle')}
             </p>
           </div>
