@@ -62,6 +62,11 @@ export default function Shop() {
     setSelectedProduct(null); // Close dialog on add to cart
   };
 
+  const getPartNumber = (description: string) => {
+    const match = description.match(/Ref: ([\w\d\/-]+)/);
+    return match ? match[1] : null;
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
@@ -132,8 +137,9 @@ export default function Shop() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map(product => {
                   const image = getProductImage(product.imageId);
+                  const partNumber = getPartNumber(product.description);
                   return (
-                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer flex flex-col" onClick={() => handleOpenDialog(product)}>
+                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
                       <CardHeader className="p-0">
                         <div className="aspect-[4/3] relative">
                           <Image
@@ -145,12 +151,19 @@ export default function Shop() {
                           />
                         </div>
                       </CardHeader>
-                      <CardContent className="p-4 flex-1 flex flex-col justify-between">
-                        <div>
+                      <CardContent className="p-4 flex-1 flex flex-col justify-between gap-4">
+                        <div className="flex-1">
                           <CardTitle className="text-lg mb-2">{product.name}</CardTitle>
-                          <p className="font-bold text-primary text-lg">${product.price}</p>
+                          <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+                          <div className="mt-2 text-sm space-y-1">
+                            <p><span className="font-semibold">Brand:</span> {product.brand}</p>
+                            {partNumber && <p><span className="font-semibold">Part No:</span> {partNumber}</p>}
+                          </div>
                         </div>
-                        <Button variant="outline" className="w-full mt-4">{t('shop.quickView')}</Button>
+                        <div className="space-y-3">
+                            <p className="font-bold text-primary text-2xl">${product.price}</p>
+                            <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)}>{t('shop.quickView')}</Button>
+                        </div>
                       </CardContent>
                     </Card>
                   )
