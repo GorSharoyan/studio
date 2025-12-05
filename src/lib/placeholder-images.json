@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "Solution.am company logo",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjQ4MzY0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
       "id": "hero-background",
       "description": "Background image for the hero section, showing a modern car.",
       "imageUrl": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdXRvfGVufDB8fHx8MTc3MjE3NDAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -95,52 +101,52 @@
     },
     {
       "id": "product-10",
-      "imageUrl": "https://images.unsplash.com/photo-1763836393413-3b79e6b4560a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhbHRlcm5hdG9yfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1763836393413-3b79e6b4560a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhbHRlcm5hdG9yfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "alternator"
     },
     {
       "id": "product-11",
-      "imageUrl": "https://images.unsplash.com/photo-1646836724077-80a38f4b055a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmdWVsJTIwcHVtcHxlbnwwfHx8fDE3NjQ4NTg5MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1646836724077-80a38f4b055a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmdWVsJTIwcHVtcHxlbnwwfHx8fDE3NjQ4NTg5MzJ8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "fuel pump"
     },
     {
       "id": "product-12",
-      "imageUrl": "https://images.unsplash.com/photo-1660579024528-9815f6be43ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YXRlciUyMHB1bXB8ZW58MHx8fHwxNzY0NzY1MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1660579024528-9815f6be43ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YXRlciUyMHB1bXB8ZW58MHx8fHwxNzY0NzY1MDA4fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "water pump"
     },
     {
       "id": "product-13",
-      "imageUrl": "https://images.unsplash.com/photo-1762012507738-cec03af3cb28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaG9jayUyMGFic29yYmVyfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762012507738-cec03af3cb28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzaG9jayUyMGFic29yYmVyfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "shock absorber"
     },
     {
       "id": "product-14",
-      "imageUrl": "https://images.unsplash.com/photo-1602667431921-85ee73b44ea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0aW1pbmclMjBiZWx0fGVufDB8fHx8MTc2NDg1ODkzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1602667431921-85ee73b44ea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0aW1pbmclMjBiZWx0fGVufDB8fHx8MTc2NDg1ODkzMnww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "timing belt"
     },
     {
       "id": "product-15",
-      "imageUrl": "https://images.unsplash.com/photo-1759190068315-f06bcb887edc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjbHV0Y2glMjBraXR8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1759190068315-f06bcb887edc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjbHV0Y2glMjBraXR8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "clutch kit"
     },
     {
       "id": "product-16",
-      "imageUrl": "https://images.unsplash.com/photo-1742738028001-9c9191c838b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxleGhhdXN0JTIwbXVmZmxlcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1742738028001-9c9191c838b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxleGhhdXN0JTIwbXVmZmxlcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "exhaust muffler"
     },
     {
       "id": "product-17",
-      "imageUrl": "https://images.unsplash.com/photo-1569718997576-8ea7573d0abd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXRhbHl0aWMlMjBjb252ZXJ0ZXJ8ZW58MHx8fHwxNzY0ODA4NjA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1569718997576-8ea7573d0abd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXRhbHl0aWMlMjBjb252ZXJ0ZXJ8ZW58MHx8fHwxNzY0ODA4NjA0fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "catalytic converter"
     },
     {
       "id": "product-18",
-      "imageUrl": "https://images.unsplash.com/photo-1726601057260-e8095dad345a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3h5Z2VuJTIwc2Vuc29yfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1726601057260-e8095dad345a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3h5Z2VuJTIwc2Vuc29yfGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "oxygen sensor"
     },
     {
       "id": "product-19",
-      "imageUrl": "https://images.unsplash.com/photo-1758873263491-f3969d8c6fda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpZ25pdGlvbiUyMGNvaWx8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1758873263491-f3969d8c6fda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpZ25pdGlvbiUyMGNvaWx8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "ignition coil"
     },
     {
@@ -150,22 +156,22 @@
     },
     {
       "id": "product-21",
-      "imageUrl": "https://images.unsplash.com/photo-1669725341213-7379ff6c90d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669725341213-7379ff6c90d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-22",
-      "imageUrl": "https://images.unsplash.com/photo-1564855445867-128ffc9cc58c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1564855445867-128ffc9cc58c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-23",
-      "imageUrl": "https://images.unsplash.com/photo-1686696037307-2f4cb1c9cf81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1686696037307-2f4cb1c9cf81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-24",
-      "imageUrl": "https://images.unsplash.com/photo-1599028274511-e02a767949a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1599028274511-e02a767949a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {

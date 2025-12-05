@@ -37,6 +37,7 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const { toast } = useToast();
+  const siteLogo = PlaceHolderImages.find(img => img.id === 'site-logo');
 
   const handleCheckout = () => {
     toast({
@@ -52,13 +53,16 @@ export function Header() {
       <div className="container flex h-20 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image
-                src="/solution.am_logo.png"
-                alt="Solution.am Logo"
-                width={150}
-                height={40}
-                className="object-contain"
-            />
+            {siteLogo && (
+              <Image
+                  src={siteLogo.imageUrl}
+                  alt="Solution.am Logo"
+                  width={250}
+                  height={100}
+                  className="object-contain"
+                  data-ai-hint={siteLogo.imageHint}
+              />
+            )}
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
