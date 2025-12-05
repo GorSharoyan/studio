@@ -9,43 +9,43 @@
     {
       "id": "brand-logo-volkswagen",
       "description": "Volkswagen brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1620710410943-711c942456f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxWb2xrc3dhZ2VuJTIwbG9nb3xlbnwwfHx8fDE3NzI5NTAxNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1642187653035-ca9cd17fdaa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxWb2xrc3dhZ2VuJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Volkswagen logo"
     },
     {
       "id": "brand-logo-audi",
       "description": "Audi brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1541348263662-e349232b3841?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxB䡆JTIwbG9nb3xlbnwwfHx8fDE3NzI5NTAxODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1688489190893-89e26dbed014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxBdWRpJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Audi logo"
     },
     {
       "id": "brand-logo-mercedes",
       "description": "Mercedes brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1565545228-59c2642c623a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxNZXJjZWRlcyUyMGxvZ298ZW58MHx8fHwxNzcyOTUwMjA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxNZXJjZWRlcyUyMGxvZ298ZW58MHx8fHwxNzY0ODQzMDA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Mercedes logo"
     },
     {
       "id": "brand-logo-bmw",
       "description": "BMW brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1622312275916-e4168019dc92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxCTVclMjBsb2dvfGVufDB8fHx8MTc3Mjk1MDIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1726262842192-a54836151247?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxCTVclMjBsb2dvfGVufDB8fHx8MTc2NDg0MzAwNHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "BMW logo"
     },
     {
       "id": "brand-logo-porsche",
       "description": "Porsche brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1629450646456-b7a70c3b53c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQb3JzY2hlJTIwbG9nb3xlbnwwfHx8fDE3NzI5NTAyNTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1688992515636-0e7d2f898b88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQb3JzY2hlJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Porsche logo"
     },
     {
       "id": "brand-logo-renault",
       "description": "Renault brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1631557999120-4a8a5ab1d3e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxSZW5hdWx0JTIwbG9nb3xlbnwwfHx8fDE3NzI5NTAyODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1745856305747-d1872fa7fe67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxSZW5hdWx0JTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Renault logo"
     },
     {
       "id": "brand-logo-peugeot",
       "description": "Peugeot brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1628522399999-548a3a0e7a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQZXVnZW90JTIwbG9nb3xlbnwwfHx8fDE3NzE1NDk5MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1541486777492-1e53073ac1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxQZXVnZW90JTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Peugeot logo"
     },
     {
@@ -65,17 +65,17 @@
     },
     {
       "id": "product-4",
-      "imageUrl": "https://images.unsplash.com/photo-1738104927066-a93fd095481d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFyayUyMHBsdWdzfGVufDB8fHx8MTc2NDc5ODM1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1738104927066-a93fd095481d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFyayUyMHBsdWdzfGVufDB8fHx8MTc2NDc5ODM1OXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "spark plugs"
     },
     {
       "id": "product-5",
-      "imageUrl": "https://images.unsplash.com/photo-1697404473575-982c90c9cc25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdXNwZW5zaW9ufGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1697404473575-982c90c9cc25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdXNwZW5zaW9ufGVufDB8fHx8MTc2NDg1ODkzMXww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "suspension"
     },
     {
       "id": "product-6",
-      "imageUrl": "https://images.unsplash.com/photo-1513518647365-91830a8800b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsaWdodCUyMGJ1bGJ8ZW58MHx8fHwxNzY0ODAyNzI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1513518647365-91830a8800b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsaWdodCUyMGJ1bGJ8ZW58MHx8fHwxNzY0ODAyNzI1fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "light bulb"
     },
     {
