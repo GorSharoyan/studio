@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "The main logo for the Solution.am website.",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjQ4MzY0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
       "id": "hero-background",
       "description": "Background image for the hero section, showing a modern car.",
       "imageUrl": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdXRvfGVufDB8fHx8MTc3MjE3NDAzNnww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -195,57 +201,57 @@
     },
     {
       "id": "product-30",
-      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-31",
-      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-32",
-      "imageUrl": "https://images.unsplash.com/photo-1564855445867-128ffc9cc58c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1564855445867-128ffc9cc58c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-33",
-      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-34",
-      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1575199529471-12f5d98b24d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-35",
-      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-36",
-      "imageUrl": "https://images.unsplash.com/photo-1587725950196-6ef36e3b474e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1587725950196-6ef36e3b474e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-37",
-      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-38",
-      "imageUrl": "https://images.unsplash.com/photo-1599028274529-31020a1fc1f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmFkaWF0b3J8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1599028274529-31020a1fc1f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmFkaWF0b3J8ZW58MHx8fHwxNzY0ODU4OTMxfDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-39",
-      "imageUrl": "https://images.unsplash.com/photo-1686696037307-2f4cb1c9cf81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1686696037307-2f4cb1c9cf81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     },
     {
       "id": "product-40",
-      "imageUrl": "https://images.unsplash.com/photo-1523495909838-79c67b15be34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1523495909838-79c67b15be34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyYWRpYXRvcnxlbnwwfHx8fDE3NjQ4NTg5MzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "radiator"
     }
   ]

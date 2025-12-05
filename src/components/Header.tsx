@@ -25,20 +25,10 @@ import { ScrollArea } from './ui/scroll-area';
 import { Badge } from './ui/badge';
 import { useLanguage, languages } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
-
-const productImages = [
-    { id: 'product-1', url: 'https://picsum.photos/seed/p1/400/300', hint: 'brake pads' },
-    { id: 'product-2', url: 'https://picsum.photos/seed/p2/400/300', hint: 'oil filter' },
-    { id: 'product-3', url: 'https://picsum.photos/seed/p3/400/300', hint: 'air filter' },
-    { id: 'product-4', url: 'https://picsum.photos/seed/p4/400/300', hint: 'spark plugs' },
-    { id: 'product-5', url: 'https://picsum.photos/seed/p5/400/300', hint: 'suspension' },
-    { id: 'product-6', url: 'https://picsum.photos/seed/p6/400/300', hint: 'light bulb' },
-    { id: 'product-7', url: 'https://picsum.photos/seed/p7/400/300', hint: 'brake rotor' },
-    { id: 'product-8', url: 'https://picsum.photos/seed/p8/400/300', hint: 'car battery' },
-]
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const getProductImage = (imageId: string) => {
-    return productImages.find(img => img.id === imageId) || { url: 'https://placehold.co/64x64', hint: 'placeholder'};
+    return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/64x64', imageHint: 'placeholder'};
 }
 
 export function Header() {
@@ -46,6 +36,7 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const { toast } = useToast();
+  const siteLogo = PlaceHolderImages.find(img => img.id === 'site-logo');
 
   const handleCheckout = () => {
     toast({
@@ -61,9 +52,20 @@ export function Header() {
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">
-              Solution.am
-            </span>
+            {siteLogo ? (
+                <Image
+                    src={siteLogo.imageUrl}
+                    alt={siteLogo.description}
+                    width={150}
+                    height={50}
+                    className="object-contain"
+                    data-ai-hint={siteLogo.imageHint}
+                />
+            ) : (
+                <span className="hidden font-bold sm:inline-block">
+                Solution.am
+                </span>
+            )}
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
@@ -111,7 +113,7 @@ export function Header() {
                       const image = getProductImage(item.product.imageId);
                       return (
                         <div key={item.product.id} className="flex items-center gap-4">
-                          <Image src={image.url} alt={item.product.name} width={64} height={64} className="rounded-md object-cover" />
+                          <Image src={image.imageUrl} alt={item.product.name} width={64} height={64} className="rounded-md object-cover" />
                           <div className="flex-1">
                             <h4 className="font-semibold">{item.product.name}</h4>
                             <p className="text-sm text-muted-foreground">${item.product.price}</p>
