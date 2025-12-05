@@ -16,17 +16,30 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { products } from '@/lib/products';
-import { Plus, Minus, Package, Lightbulb, Wrench, Car, Cog } from 'lucide-react';
+import { Plus, Minus, Package, Lightbulb, Wrench, Car, Cog, Shield, Fan, Battery } from 'lucide-react';
 
 const iconMap: { [key: string]: React.ElementType } = {
-  led: Lightbulb,
-  лампа: Lightbulb,
-  xenon: Lightbulb,
-  halogen: Lightbulb,
-  brake: Wrench,
-  suspension: Wrench,
-  engine: Cog,
-  default: Car,
+  'led': Lightbulb,
+  'светодиодная': Lightbulb,
+  'лампа': Lightbulb,
+  'xenon': Lightbulb,
+  'галогенная': Lightbulb,
+  'brake': Wrench, // Using a generic Wrench for now
+  'suspension': Shield, // Icon for suspension parts
+  'engine': Cog, // Icon for engine parts
+  'radiator': Fan, // Icon for cooling parts
+  'battery': Battery, // Icon for batteries
+  'аккумулятор': Battery,
+  'filter': Wrench,
+  'starter': Wrench,
+  'alternator': Wrench,
+  'pump': Wrench,
+  'belt': Wrench,
+  'hose': Wrench,
+  'gasket': Wrench,
+  'sensor': Wrench,
+  'exhaust': Wrench,
+  'default': Car,
 };
 
 const getProductIcon = (description: string) => {
