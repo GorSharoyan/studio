@@ -16,7 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { products } from '@/lib/products';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Package } from 'lucide-react';
 
 export default function Shop() {
   const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
@@ -63,7 +63,7 @@ export default function Shop() {
   };
 
   const getPartNumber = (description: string) => {
-    const match = description.match(/Ref: ([\w\d\/-]+)/);
+    const match = description.match(/Part No: ([\w\d\/-]+)/);
     return match ? match[1] : null;
   }
 
@@ -136,19 +136,12 @@ export default function Shop() {
             {filteredProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map(product => {
-                  const image = getProductImage(product.imageId);
                   const partNumber = getPartNumber(product.description);
                   return (
                     <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
                       <CardHeader className="p-0">
-                        <div className="aspect-[4/3] relative">
-                          <Image
-                            src={image.imageUrl}
-                            alt={product.name}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={image.imageHint}
-                          />
+                        <div className="aspect-[4/3] relative bg-muted flex items-center justify-center">
+                          <Package className="w-24 h-24 text-muted-foreground/50" />
                         </div>
                       </CardHeader>
                       <CardContent className="p-4 flex-1 flex flex-col justify-between gap-4">
@@ -161,7 +154,10 @@ export default function Shop() {
                           </div>
                         </div>
                         <div className="space-y-3">
-                            <p className="font-bold text-primary text-2xl">{product.price} ֏</p>
+                            <div className='text-right'>
+                                <p className="font-bold text-primary text-2xl">{product.price} ֏</p>
+                                <p className="text-xs text-muted-foreground">Dealer Price (With VAT)</p>
+                            </div>
                             <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)}>{t('shop.quickView')}</Button>
                         </div>
                       </CardContent>
@@ -185,14 +181,8 @@ export default function Shop() {
               <DialogTitle className="text-2xl font-bold">{selectedProduct.name}</DialogTitle>
             </DialogHeader>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={getProductImage(selectedProduct.imageId).imageUrl}
-                  alt={selectedProduct.name}
-                  fill
-                  className="object-cover rounded-md"
-                  data-ai-hint={getProductImage(selectedProduct.imageId).imageHint}
-                />
+              <div className="relative aspect-[4/3] bg-muted flex items-center justify-center rounded-md">
+                <Package className="w-24 h-24 text-muted-foreground/50" />
               </div>
               <div className="flex flex-col">
                 <DialogDescription className="text-base text-foreground flex-1">
@@ -206,7 +196,10 @@ export default function Shop() {
             </div>
             <DialogFooter className="sm:justify-between items-center">
                 <div className="flex items-center gap-4">
-                    <p className="text-2xl font-bold text-primary">{selectedProduct.price} ֏</p>
+                    <div>
+                        <p className="text-2xl font-bold text-primary">{selectedProduct.price} ֏</p>
+                        <p className="text-xs text-muted-foreground">Dealer Price (With VAT)</p>
+                    </div>
                     <div className="flex items-center gap-2">
                         <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setDialogQuantity(q => Math.max(1, q - 1))}>
                             <Minus className="h-4 w-4" />
