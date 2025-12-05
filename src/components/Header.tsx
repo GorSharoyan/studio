@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -36,7 +37,6 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const { toast } = useToast();
-  const siteLogo = PlaceHolderImages.find(img => img.id === 'site-logo');
 
   const handleCheckout = () => {
     toast({
@@ -52,20 +52,13 @@ export function Header() {
       <div className="container flex h-20 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            {siteLogo ? (
-                <Image
-                    src={siteLogo.imageUrl}
-                    alt={siteLogo.description}
-                    width={150}
-                    height={40}
-                    className="object-contain"
-                    data-ai-hint={siteLogo.imageHint}
-                />
-            ) : (
-                <span className="hidden font-bold sm:inline-block">
-                Solution.am
-                </span>
-            )}
+            <Image
+                src="/solution.am_logo.png"
+                alt="Solution.am Logo"
+                width={150}
+                height={40}
+                className="object-contain"
+            />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
@@ -174,3 +167,5 @@ export function Header() {
     </header>
   );
 }
+
+    
