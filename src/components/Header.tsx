@@ -57,7 +57,7 @@ export function Header() {
                 alt="Solution.am Logo"
                 width={140}
                 height={40}
-                className="object-contain"
+                className="object-contain border rounded-md p-1"
             />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
