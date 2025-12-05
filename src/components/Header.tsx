@@ -48,7 +48,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-primary/95 text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
@@ -63,19 +63,19 @@ export function Header() {
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
               href="/"
-              className="transition-colors hover:text-primary-foreground/80 text-primary-foreground/60"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               {t('header.home')}
             </Link>
             <Link
               href="/shop"
-              className="transition-colors hover:text-primary-foreground/80 text-primary-foreground/60"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               {t('header.shop')}
             </Link>
             <Link
               href="/contacts"
-              className="transition-colors hover:text-primary-foreground/80 text-primary-foreground"
+              className="transition-colors hover:text-foreground/80 text-foreground"
             >
               {t('header.contacts')}
             </Link>
@@ -84,7 +84,7 @@ export function Header() {
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="relative hover:bg-primary/80">
+            <Button variant="ghost" size="icon" className="relative hover:bg-accent">
               <ShoppingCart className="h-5 w-5" />
               {cart.length > 0 && (
                 <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center rounded-full p-0 text-xs">
@@ -146,7 +146,7 @@ export function Header() {
         </Sheet>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="w-8 h-8 p-0 hover:bg-primary/80">
+              <Button variant="ghost" className="w-8 h-8 p-0 hover:bg-accent">
                 <span>{language.flag}</span>
               </Button>
             </DropdownMenuTrigger>
