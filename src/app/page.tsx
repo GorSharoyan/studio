@@ -13,7 +13,6 @@ import { useLanguage } from '@/hooks/use-language';
 
 export default function Home() {
   const { t } = useLanguage();
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
   const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
   
   const actionItems = [
@@ -53,21 +52,12 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <div className="relative hero-section text-white py-20 md:py-32 rounded-lg overflow-hidden">
-          {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover"
-              data-ai-hint={heroImage.imageHint}
-            />
-          )}
+        <div className="text-foreground py-20 md:py-32 rounded-lg overflow-hidden bg-secondary/20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl text-primary">
               {t('home.hero.title')}
             </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto">
+            <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
               {t('home.hero.subtitle')}
             </p>
           </div>

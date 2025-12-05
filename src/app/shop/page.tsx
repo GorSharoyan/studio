@@ -16,7 +16,29 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { products } from '@/lib/products';
-import { Plus, Minus, Package } from 'lucide-react';
+import { Plus, Minus, Package, Lightbulb, Wrench, Car, Cog } from 'lucide-react';
+
+const iconMap: { [key: string]: React.ElementType } = {
+  led: Lightbulb,
+  лампа: Lightbulb,
+  xenon: Lightbulb,
+  halogen: Lightbulb,
+  brake: Wrench,
+  suspension: Wrench,
+  engine: Cog,
+  default: Car,
+};
+
+const getProductIcon = (description: string) => {
+  const lowerDesc = description.toLowerCase();
+  for (const key in iconMap) {
+    if (lowerDesc.includes(key)) {
+      return iconMap[key];
+    }
+  }
+  return iconMap.default;
+};
+
 
 export default function Shop() {
   const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
@@ -43,10 +65,6 @@ export default function Shop() {
       return isPriceMatch && isCountryMatch && isTypeMatch && isSearchMatch;
     });
   }, [priceRange, country, productType, searchTerm]);
-
-  const getProductImage = (imageId: string) => {
-    return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/400x300', imageHint: 'placeholder' };
-  }
 
   const handleOpenDialog = (product: Product) => {
     setSelectedProduct(product);
@@ -137,11 +155,12 @@ export default function Shop() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map(product => {
                   const partNumber = getPartNumber(product.description);
+                  const ProductIcon = getProductIcon(product.description);
                   return (
                     <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
                       <CardHeader className="p-0">
                         <div className="aspect-[4/3] relative bg-muted flex items-center justify-center">
-                          <Package className="w-24 h-24 text-muted-foreground/50" />
+                          <ProductIcon className="w-24 h-24 text-muted-foreground/50" />
                         </div>
                       </CardHeader>
                       <CardContent className="p-4 flex-1 flex flex-col justify-between gap-4">
