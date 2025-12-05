@@ -56,8 +56,8 @@ export function Header() {
                 <Image
                     src={siteLogo.imageUrl}
                     alt={siteLogo.description}
-                    width={180}
-                    height={50}
+                    width={150}
+                    height={40}
                     className="object-contain"
                     data-ai-hint={siteLogo.imageHint}
                 />
