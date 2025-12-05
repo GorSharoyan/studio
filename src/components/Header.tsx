@@ -57,7 +57,7 @@ export function Header() {
                     src={siteLogo.imageUrl}
                     alt={siteLogo.description}
                     width={150}
-                    height={50}
+                    height={40}
                     className="object-contain"
                     data-ai-hint={siteLogo.imageHint}
                 />
