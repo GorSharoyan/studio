@@ -49,9 +49,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+      <div className="container flex h-20 items-center justify-between px-4">
+        <div className="flex items-center gap-6">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
                 src="/assets/solution.am_logo.png"
                 alt="Solution.am Logo"
@@ -60,7 +60,7 @@ export function Header() {
                 className="object-contain border rounded-md p-1"
             />
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link
               href="/"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
@@ -81,7 +81,7 @@ export function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+        <div className="flex items-center justify-end space-x-2">
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="relative hover:bg-accent">
