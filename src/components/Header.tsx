@@ -49,7 +49,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center justify-between px-4">
+      <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -109,7 +109,7 @@ export function Header() {
                           <Image src={image.imageUrl} alt={item.product.name} width={64} height={64} className="rounded-md object-cover" />
                           <div className="flex-1">
                             <h4 className="font-semibold">{item.product.name}</h4>
-                            <p className="text-sm text-muted-foreground">${item.product.price}</p>
+                            <p className="text-sm text-muted-foreground">{item.product.price} ֏</p>
                             <div className="flex items-center gap-2 mt-1">
                               <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>-</Button>
                               <span>{item.quantity}</span>
@@ -128,7 +128,7 @@ export function Header() {
                   <div className="w-full">
                     <div className="flex justify-between font-semibold text-lg">
                       <span>{t('header.cart.total')}</span>
-                      <span>${getTotalPrice()}</span>
+                      <span>{getTotalPrice()} ֏</span>
                     </div>
                     <SheetClose asChild>
                       <Button className="w-full mt-4" onClick={handleCheckout}>{t('header.cart.checkout')}</Button>

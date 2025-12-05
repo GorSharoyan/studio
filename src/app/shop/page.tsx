@@ -99,8 +99,8 @@ export default function Shop() {
                     onValueChange={(value) => setPriceRange(value)}
                   />
                   <div className="flex justify-between text-sm text-muted-foreground mt-2">
-                    <span>${priceRange[0]}</span>
-                    <span>${priceRange[1]}</span>
+                    <span>{priceRange[0]} ֏</span>
+                    <span>{priceRange[1]} ֏</span>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function Shop() {
                           </div>
                         </div>
                         <div className="space-y-3">
-                            <p className="font-bold text-primary text-2xl">${product.price}</p>
+                            <p className="font-bold text-primary text-2xl">{product.price} ֏</p>
                             <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)}>{t('shop.quickView')}</Button>
                         </div>
                       </CardContent>
@@ -206,7 +206,7 @@ export default function Shop() {
             </div>
             <DialogFooter className="sm:justify-between items-center">
                 <div className="flex items-center gap-4">
-                    <p className="text-2xl font-bold text-primary">${selectedProduct.price}</p>
+                    <p className="text-2xl font-bold text-primary">{selectedProduct.price} ֏</p>
                     <div className="flex items-center gap-2">
                         <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setDialogQuantity(q => Math.max(1, q - 1))}>
                             <Minus className="h-4 w-4" />
