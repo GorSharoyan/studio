@@ -53,7 +53,7 @@ export function Header() {
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Image
-                src="/logo.png"
+                src="/assets/solution.am_logo.png"
                 alt="Solution.am Logo"
                 width={140}
                 height={40}
