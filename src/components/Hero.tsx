@@ -6,13 +6,13 @@ import { useLanguage } from '@/hooks/use-language';
 
 export function Hero() {
   const { t } = useLanguage();
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
     <div className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden">
       {heroImage && (
         <Image
-          src={heroImage.imageUrl}
+          src="/assets/solution.am_background.jpg"
           alt={heroImage.description}
           fill
           className="object-cover z-0"
