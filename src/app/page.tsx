@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
+import { Badge } from '@/components/ui/badge';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -23,10 +24,10 @@ export default function Home() {
   const brands = [
     { name: 'NAITE', icon: Search },
     { name: 'Bosch', icon: Wrench },
-    { name: 'Denso', icon: Fan },
-    { name: 'Castrol', icon: Droplets },
-    { name: 'Valeo', icon: Lightbulb },
-    { name: 'Mobil 1', icon: Droplets },
+    { name: 'Denso', icon: Fan, comingSoon: true },
+    { name: 'Castrol', icon: Droplets, comingSoon: true },
+    { name: 'Valeo', icon: Lightbulb, comingSoon: true },
+    { name: 'Mobil 1', icon: Droplets, comingSoon: true },
     { name: 'Hella', icon: Lightbulb },
     { name: 'Nissens', icon: Fan },
     { name: 'Liqui Moly', icon: Droplets },
@@ -154,7 +155,12 @@ export default function Home() {
                     {brands.map((brand) => (
                         <CarouselItem key={brand.name} className="basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
                             <div className="p-2">
-                                <Card className="overflow-hidden aspect-square">
+                                <Card className="overflow-hidden aspect-square relative">
+                                    {brand.comingSoon && (
+                                      <Badge variant="secondary" className="absolute top-1 right-1 text-xs">
+                                        Coming Soon
+                                      </Badge>
+                                    )}
                                     <CardContent className="flex flex-col items-center justify-center p-4 h-full w-full gap-2">
                                         <brand.icon className="w-12 h-12 text-muted-foreground" />
                                         <p className="text-sm font-medium text-muted-foreground">{brand.name}</p>
