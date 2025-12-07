@@ -140,7 +140,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-bold text-center mb-8">{t('home.brands.title')}</h2>
             <Carousel
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 bg-secondary/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-bold text-center mb-12">{t('home.testimonials.title')}</h2>
             <Carousel
