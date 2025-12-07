@@ -106,29 +106,6 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <div className="relative text-foreground flex justify-center items-center overflow-hidden">
-          {heroImage && (
-            <Image
-              src="/assets/solution.am_background.jpg"
-              alt={heroImage.description}
-              width={2000}
-              height={500}
-              className="object-cover z-0"
-              data-ai-hint={heroImage.imageHint}
-              priority
-            />
-          )}
-          <div className="absolute inset-0 bg-black/50 z-10" />
-          <div className="relative container mx-auto px-4 text-center z-20">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl text-white">
-              {t('home.hero.title')}
-            </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
-              {t('home.hero.subtitle')}
-            </p>
-          </div>
-        </div>
-
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-headline font-bold mb-4">{t('home.about.title')}</h2>
