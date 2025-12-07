@@ -56,9 +56,9 @@ export function Header() {
             <Image
                 src="/assets/solution.am_logo.png"
                 alt="Solution.am Logo"
-                width={140}
-                height={40}
-                className="object-contain border rounded-md p-1"
+                width={120}
+                height={34}
+                className="object-contain"
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
