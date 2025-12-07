@@ -1,6 +1,7 @@
 
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
@@ -11,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { Badge } from '@/components/ui/badge';
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -72,7 +74,7 @@ export default function Home() {
     },
   ];
 
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -147,8 +149,13 @@ export default function Home() {
                 opts={{
                     align: "start",
                     loop: true,
-                    dragFree: true,
                 }}
+                plugins={[
+                    Autoplay({
+                      delay: 2000,
+                      stopOnInteraction: true,
+                    }),
+                ]}
                 className="w-full max-w-6xl mx-auto"
             >
                 <CarouselContent>
