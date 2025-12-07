@@ -3,13 +3,18 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useLanguage } from '@/hooks/use-language';
+import { cn } from '@/lib/utils';
 
-export function Hero() {
+type HeroProps = {
+  className?: string;
+}
+
+export function Hero({ className }: HeroProps) {
   const { t } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <div className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden">
+    <div className={cn("relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden", className)}>
       {heroImage && (
         <Image
           src="/assets/solution.am_background.jpg"
