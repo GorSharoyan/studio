@@ -87,12 +87,6 @@ export default function Home() {
       category: 'DIY',
       description: 'The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.'
     },
-    {
-      title: 'Solution.am Opens New Warehouse in Yerevan',
-      date: 'August 1, 2024',
-      category: 'Company News',
-      description: 'To better serve our customers, we have opened a new state-of-the-art warehouse, significantly increasing our stock and speeding up delivery.'
-    },
   ];
 
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
@@ -297,5 +291,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
