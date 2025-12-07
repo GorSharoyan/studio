@@ -2,7 +2,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
@@ -14,9 +14,21 @@ import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car,
 import { useLanguage } from '@/hooks/use-language';
 import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+
+type NewsItem = {
+  title: string;
+  date: string;
+  category: string;
+  description: string;
+  imageId: string;
+  fullText: string;
+};
+
 
 export default function Home() {
   const { t } = useLanguage();
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   
   const actionItems = [
     { title: t('home.actions.dealer'), icon: Handshake, href: '/dealer' },
@@ -75,27 +87,30 @@ export default function Home() {
     },
   ];
   
-  const newsItems = [
+  const newsItems: NewsItem[] = [
     {
       title: 'New Partnership with Major European Supplier',
       date: 'August 15, 2024',
       category: 'Business',
       description: 'We are thrilled to announce a new partnership that will expand our inventory with high-quality European parts, bringing you even more options.',
-      imageId: 'news-partnership'
+      imageId: 'news-partnership',
+      fullText: 'Solution.am is excited to announce a strategic partnership with one of Europe\'s leading automotive parts manufacturers. This collaboration will significantly broaden our inventory, bringing a wider range of high-quality, certified European parts to the Armenian market. Our customers can now expect an even greater selection of reliable components for brands like BMW, Mercedes-Benz, Audi, and Volkswagen. This partnership underscores our commitment to providing the best possible products and creative solutions to meet the evolving needs of modern vehicles. We believe this will solidify our position as the top choice for auto parts in the region.'
     },
     {
       title: 'Tips for Summer Car Maintenance',
       date: 'August 10, 2024',
       category: 'DIY',
       description: 'The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.',
-      imageId: 'news-maintenance'
+      imageId: 'news-maintenance',
+      fullText: 'Summer in Armenia can be demanding on any vehicle. To avoid unexpected breakdowns, it’s crucial to perform regular maintenance. Here are our top tips:\n\n1. **Check Your Coolant:** Your engine\'s cooling system works overtime in the heat. Ensure your coolant is at the correct level and is clean. We recommend a coolant flush every two years.\n2. **Inspect Your Tires:** Hot asphalt increases tire pressure. Check your tire pressure in the morning before driving and ensure it matches your vehicle\'s recommended PSI. Don\'t forget to inspect the tread for wear.\n3. **Test Your Battery:** High temperatures can accelerate battery degradation. Visit us for a free battery test to ensure it holds a charge properly.\n4. **Protect Your Interior:** Use a sunshade to protect your dashboard from cracking and to keep the cabin temperature down.\n\nFollowing these simple steps can save you from costly repairs and keep you safe on the road all summer long.'
     },
     {
         title: 'Announcing Our New Loyalty Program',
         date: 'August 5, 2024',
         category: 'Company',
         description: 'We are excited to launch our new loyalty program to reward our amazing customers. Start earning points on every purchase today!',
-        imageId: 'news-loyalty'
+        imageId: 'news-loyalty',
+        fullText: 'At Solution.am, we value our customers. To show our appreciation, we are thrilled to launch the new "Solution Rewards" loyalty program! Starting today, every purchase you make, whether in-store or online, will earn you points that can be redeemed for discounts on future purchases, exclusive merchandise, and special services. Signing up is free and easy. Simply create an account on our website or ask one of our team members in-store. As a welcome bonus, you\'ll receive 100 points just for joining! Thank you for being a part of the Solution.am family. We look forward to rewarding your loyalty.'
     },
   ];
 
@@ -236,7 +251,7 @@ export default function Home() {
                             <span>{item.date}</span>
                         </div>
                         <p className="text-muted-foreground flex-1 mb-6">{item.description}</p>
-                        <Button variant="outline" className="w-fit">Read More</Button>
+                        <Button variant="outline" className="w-fit" onClick={() => setSelectedNews(item)}>Read More</Button>
                         </CardContent>
                     </Card>
                 )
@@ -285,6 +300,42 @@ export default function Home() {
         </section>
 
       </main>
+
+      {selectedNews && (
+        <Dialog open={!!selectedNews} onOpenChange={() => setSelectedNews(null)}>
+          <DialogContent className="sm:max-w-2xl">
+            <DialogHeader>
+              <Badge variant="secondary" className="w-fit mb-2">{selectedNews.category}</Badge>
+              <DialogTitle className="text-2xl font-headline">{selectedNews.title}</DialogTitle>
+              <DialogDescription className="flex items-center text-sm pt-1">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>{selectedNews.date}</span>
+              </DialogDescription>
+            </DialogHeader>
+            <div className="py-4">
+                {(() => {
+                    const image = PlaceHolderImages.find(img => img.id === selectedNews.imageId);
+                    if (image) {
+                        return (
+                            <div className="relative aspect-video mb-6 rounded-lg overflow-hidden">
+                                <Image 
+                                    src={image.imageUrl} 
+                                    alt={selectedNews.title} 
+                                    fill 
+                                    className="object-cover"
+                                    data-ai-hint={image.imageHint}
+                                />
+                            </div>
+                        )
+                    }
+                    return null;
+                })()}
+                <p className="whitespace-pre-wrap text-foreground/90">{selectedNews.fullText}</p>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
+
       <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto py-8 px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
