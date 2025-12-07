@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, X } from 'lucide-react';
+import { ShoppingCart, X, Search } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import {
   Sheet,
@@ -27,6 +27,7 @@ import { Badge } from './ui/badge';
 import { useLanguage, languages } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Input } from './ui/input';
 
 const getProductImage = (imageId: string) => {
     return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/64x64', imageHint: 'placeholder'};
@@ -81,69 +82,76 @@ export function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center justify-end space-x-2">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="relative hover:bg-accent">
-              <ShoppingCart className="h-5 w-5" />
-              {cart.length > 0 && (
-                <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center rounded-full p-0 text-xs">
-                  {cart.reduce((total, item) => total + item.quantity, 0)}
-                </Badge>
-              )}
-              <span className="sr-only">{t('header.cart.title')}</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>{t('header.cart.title')}</SheetTitle>
-            </SheetHeader>
-            {cart.length > 0 ? (
-              <>
-                <ScrollArea className="h-[calc(100vh-150px)] pr-4">
-                  <div className="flex flex-col gap-4 py-4">
-                    {cart.map(item => {
-                      const image = getProductImage(item.product.imageId);
-                      return (
-                        <div key={item.product.id} className="flex items-center gap-4">
-                          <Image src={image.imageUrl} alt={item.product.name} width={64} height={64} className="rounded-md object-cover" />
-                          <div className="flex-1">
-                            <h4 className="font-semibold">{item.product.name}</h4>
-                            <p className="text-sm text-muted-foreground">{item.product.price} ֏</p>
-                            <div className="flex items-center gap-2 mt-1">
-                              <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>-</Button>
-                              <span>{item.quantity}</span>
-                              <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.product.id, item.quantity + 1)}>+</Button>
+        <div className="flex items-center justify-end space-x-2 md:space-x-4">
+          <div className="relative hidden sm:block">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder={t('header.searchPlaceholder')}
+              className="pl-10 h-9 w-40 lg:w-64"
+            />
+          </div>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="relative hover:bg-accent">
+                <ShoppingCart className="h-5 w-5" />
+                {cart.length > 0 && (
+                  <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center rounded-full p-0 text-xs">
+                    {cart.reduce((total, item) => total + item.quantity, 0)}
+                  </Badge>
+                )}
+                <span className="sr-only">{t('header.cart.title')}</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>{t('header.cart.title')}</SheetTitle>
+              </SheetHeader>
+              {cart.length > 0 ? (
+                <>
+                  <ScrollArea className="h-[calc(100vh-150px)] pr-4">
+                    <div className="flex flex-col gap-4 py-4">
+                      {cart.map(item => {
+                        const image = getProductImage(item.product.imageId);
+                        return (
+                          <div key={item.product.id} className="flex items-center gap-4">
+                            <Image src={image.imageUrl} alt={item.product.name} width={64} height={64} className="rounded-md object-cover" />
+                            <div className="flex-1">
+                              <h4 className="font-semibold">{item.product.name}</h4>
+                              <p className="text-sm text-muted-foreground">{item.product.price} ֏</p>
+                              <div className="flex items-center gap-2 mt-1">
+                                <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>-</Button>
+                                <span>{item.quantity}</span>
+                                <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.product.id, item.quantity + 1)}>+</Button>
+                              </div>
                             </div>
+                            <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={() => removeFromCart(item.product.id)}>
+                              <X className="h-4 w-4" />
+                            </Button>
                           </div>
-                          <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={() => removeFromCart(item.product.id)}>
-                            <X className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </ScrollArea>
-                <SheetFooter className="mt-4 pt-4 border-t">
-                  <div className="w-full">
-                    <div className="flex justify-between font-semibold text-lg">
-                      <span>{t('header.cart.total')}</span>
-                      <span>{getTotalPrice()} ֏</span>
+                        )
+                      })}
                     </div>
-                    <SheetClose asChild>
-                      <Button className="w-full mt-4" onClick={handleCheckout}>{t('header.cart.checkout')}</Button>
-                    </SheetClose>
-                  </div>
-                </SheetFooter>
-              </>
-            ) : (
-              <div className="flex h-full items-center justify-center">
-                <p className="text-muted-foreground">{t('header.cart.empty')}</p>
-              </div>
-            )}
-            
-          </SheetContent>
-        </Sheet>
+                  </ScrollArea>
+                  <SheetFooter className="mt-4 pt-4 border-t">
+                    <div className="w-full">
+                      <div className="flex justify-between font-semibold text-lg">
+                        <span>{t('header.cart.total')}</span>
+                        <span>{getTotalPrice()} ֏</span>
+                      </div>
+                      <SheetClose asChild>
+                        <Button className="w-full mt-4" onClick={handleCheckout}>{t('header.cart.checkout')}</Button>
+                      </SheetClose>
+                    </div>
+                  </SheetFooter>
+                </>
+              ) : (
+                <div className="flex h-full items-center justify-center">
+                  <p className="text-muted-foreground">{t('header.cart.empty')}</p>
+                </div>
+              )}
+              
+            </SheetContent>
+          </Sheet>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="w-8 h-8 p-0 hover:bg-accent">
