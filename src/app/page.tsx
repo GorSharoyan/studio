@@ -8,7 +8,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car } from 'lucide-react';
+import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 
 export default function Home() {
@@ -21,14 +21,27 @@ export default function Home() {
   ];
 
   const brands = [
-    { name: 'NAITE', icon: Car },
-    { name: 'Volkswagen', icon: Car },
-    { name: 'Audi', icon: Car },
-    { name: 'Mercedes', icon: Car },
-    { name: 'BMW', icon: Car },
-    { name: 'Porsche', icon: Car },
-    { name: 'Renault', icon: Car },
-    { name: 'Peugeot', icon: Car },
+    { name: 'NAITE', icon: Search },
+    { name: 'Bosch', icon: Wrench },
+    { name: 'Denso', icon: Fan },
+    { name: 'Castrol', icon: Droplets },
+    { name: 'Valeo', icon: Lightbulb },
+    { name: 'Mobil 1', icon: Droplets },
+    { name: 'Hella', icon: Lightbulb },
+    { name: 'Nissens', icon: Fan },
+    { name: 'Liqui Moly', icon: Droplets },
+    { name: 'Brembo', icon: Shield },
+    { name: 'Mahle', icon: Filter },
+    { name: 'Philips Automotive', icon: Lightbulb },
+    { name: 'MANN-Filter', icon: Filter },
+    { name: 'TRW', icon: Shield },
+    { name: 'KYB', icon: Shield },
+    { name: 'NGK', icon: Cog },
+    { name: 'Shell Helix', icon: Droplets },
+    { name: 'KoyoRad', icon: Fan },
+    { name: 'Osram', icon: Lightbulb },
+    { name: 'SKF', icon: Cog },
+    { name: 'Sachs', icon: Cog },
   ];
 
   const testimonials = [
