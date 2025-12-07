@@ -157,8 +157,8 @@ export default function Home() {
                             <div className="p-2">
                                 <Card className="overflow-hidden aspect-square relative group">
                                     {brand.comingSoon && (
-                                        <div className="absolute top-2 -right-10 z-10">
-                                            <div className="w-32 transform rotate-45 bg-green-500 text-center text-white font-semibold py-1 text-xs">
+                                        <div className="absolute top-1 -right-8 z-10">
+                                            <div className="w-28 transform rotate-45 bg-green-500 text-center text-white font-semibold py-0.5 text-[10px]">
                                                 Coming Soon
                                             </div>
                                         </div>
