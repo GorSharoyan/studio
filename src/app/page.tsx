@@ -9,7 +9,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search } from 'lucide-react';
+import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search, Calendar, Newspaper } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
@@ -71,6 +71,27 @@ export default function Home() {
       initials: 'LH',
       quote: t('home.testimonials.customer4.quote'),
       rating: 4,
+    },
+  ];
+  
+  const newsItems = [
+    {
+      title: 'New Partnership with Major European Supplier',
+      date: 'August 15, 2024',
+      category: 'Business',
+      description: 'We are thrilled to announce a new partnership that will expand our inventory with high-quality European parts, bringing you even more options.'
+    },
+    {
+      title: 'Tips for Summer Car Maintenance',
+      date: 'August 10, 2024',
+      category: 'DIY',
+      description: 'The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.'
+    },
+    {
+      title: 'Solution.am Opens New Warehouse in Yerevan',
+      date: 'August 1, 2024',
+      category: 'Company News',
+      description: 'To better serve our customers, we have opened a new state-of-the-art warehouse, significantly increasing our stock and speeding up delivery.'
     },
   ];
 
@@ -149,6 +170,7 @@ export default function Home() {
                 opts={{
                     align: "start",
                     loop: true,
+                    dragFree: true,
                 }}
                 plugins={[
                     Autoplay({
@@ -182,8 +204,30 @@ export default function Home() {
             </Carousel>
           </div>
         </section>
-
+        
         <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-headline font-bold text-center mb-12">Latest News</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {newsItems.map((item, index) => (
+                <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6 flex flex-col flex-1">
+                    <Badge variant="secondary" className="w-fit mb-2">{item.category}</Badge>
+                    <h3 className="text-xl font-bold font-headline mb-2">{item.title}</h3>
+                    <div className="flex items-center text-sm text-muted-foreground mb-4">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>{item.date}</span>
+                    </div>
+                    <p className="text-muted-foreground flex-1 mb-6">{item.description}</p>
+                    <Button variant="outline" className="w-fit">Read More</Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-bold text-center mb-12">{t('home.testimonials.title')}</h2>
             <Carousel
@@ -253,3 +297,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
