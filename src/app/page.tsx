@@ -3,10 +3,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,6 +13,9 @@ import { useLanguage } from '@/hooks/use-language';
 import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Image from 'next/image';
+import { Hero } from '@/components/Hero';
 
 type NewsItem = {
   id: string;
@@ -102,32 +103,11 @@ export default function Home() {
     },
   ];
 
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
-
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <div className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden">
-        {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover z-0"
-              data-ai-hint={heroImage.imageHint}
-            />
-          )}
-          <div className="absolute inset-0 bg-black/50 z-10" />
-          <div className="relative container mx-auto px-4 text-center z-20">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl text-white">
-              {t('home.hero.title')}
-            </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto text-white/80">
-              {t('home.hero.subtitle')}
-            </p>
-          </div>
-        </div>
+        <Hero />
 
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
