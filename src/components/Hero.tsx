@@ -11,7 +11,7 @@ type HeroProps = {
   height?: number;
 }
 
-export function Hero({ className, width = 1920, height = 600 }: HeroProps) {
+export function Hero({ className, width = 2000, height = 500 }: HeroProps) {
   const { t } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 

@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import React, { useState } from 'react';
@@ -107,7 +105,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <Hero />
+        <Hero width={2000} height={500} />
 
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
