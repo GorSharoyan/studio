@@ -7,21 +7,25 @@ import { cn } from '@/lib/utils';
 
 type HeroProps = {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-export function Hero({ className }: HeroProps) {
+export function Hero({ className, width = 1920, height = 600 }: HeroProps) {
   const { t } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <div className={cn("relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden", className)}>
+    <div className={cn("relative text-foreground flex justify-center items-center overflow-hidden", className)}>
       {heroImage && (
         <Image
           src="/assets/solution.am_background.jpg"
           alt={heroImage.description}
-          fill
+          width={width}
+          height={height}
           className="object-cover z-0"
           data-ai-hint={heroImage.imageHint}
+          priority
         />
       )}
       <div className="absolute inset-0 bg-black/50 z-10" />
