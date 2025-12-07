@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import React from 'react';
@@ -79,13 +80,22 @@ export default function Home() {
       title: 'New Partnership with Major European Supplier',
       date: 'August 15, 2024',
       category: 'Business',
-      description: 'We are thrilled to announce a new partnership that will expand our inventory with high-quality European parts, bringing you even more options.'
+      description: 'We are thrilled to announce a new partnership that will expand our inventory with high-quality European parts, bringing you even more options.',
+      imageId: 'news-partnership'
     },
     {
       title: 'Tips for Summer Car Maintenance',
       date: 'August 10, 2024',
       category: 'DIY',
-      description: 'The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.'
+      description: 'The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.',
+      imageId: 'news-maintenance'
+    },
+    {
+        title: 'Announcing Our New Loyalty Program',
+        date: 'August 5, 2024',
+        category: 'Company',
+        description: 'We are excited to launch our new loyalty program to reward our amazing customers. Start earning points on every purchase today!',
+        imageId: 'news-loyalty'
     },
   ];
 
@@ -203,20 +213,34 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-bold text-center mb-12">Latest News</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {newsItems.map((item, index) => (
-                <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-6 flex flex-col flex-1">
-                    <Badge variant="secondary" className="w-fit mb-2">{item.category}</Badge>
-                    <h3 className="text-xl font-bold font-headline mb-2">{item.title}</h3>
-                    <div className="flex items-center text-sm text-muted-foreground mb-4">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span>{item.date}</span>
-                    </div>
-                    <p className="text-muted-foreground flex-1 mb-6">{item.description}</p>
-                    <Button variant="outline" className="w-fit">Read More</Button>
-                  </CardContent>
-                </Card>
-              ))}
+              {newsItems.map((item, index) => {
+                const image = PlaceHolderImages.find(img => img.id === item.imageId);
+                return (
+                    <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        {image && (
+                            <div className="relative aspect-video">
+                                <Image 
+                                    src={image.imageUrl} 
+                                    alt={item.title} 
+                                    fill 
+                                    className="object-cover" 
+                                    data-ai-hint={image.imageHint} 
+                                />
+                            </div>
+                        )}
+                        <CardContent className="p-6 flex flex-col flex-1">
+                        <Badge variant="secondary" className="w-fit mb-2">{item.category}</Badge>
+                        <h3 className="text-xl font-bold font-headline mb-2">{item.title}</h3>
+                        <div className="flex items-center text-sm text-muted-foreground mb-4">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            <span>{item.date}</span>
+                        </div>
+                        <p className="text-muted-foreground flex-1 mb-6">{item.description}</p>
+                        <Button variant="outline" className="w-fit">Read More</Button>
+                        </CardContent>
+                    </Card>
+                )
+              })}
             </div>
           </div>
         </section>

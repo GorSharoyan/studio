@@ -15,19 +15,19 @@
     {
       "id": "brand-logo-naite",
       "description": "NAITE brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1517602302552-471fe67acf66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxicmFuZCUyMGxvZ298ZW58MHx8fHwxNzY0OTM0ODQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1517602302552-471fe67acf66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxicmFuZCUyMGxvZ298ZW58MHx8fHwxNzY0OTM0ODQ2fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "brand logo"
     },
     {
       "id": "brand-logo-volkswagen",
       "description": "Volkswagen brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1642187653035-ca9cd17fdaa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxWb2xrc3dhZ2VuJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1642187653035-ca9cd17fdaa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxWb2xrc3dhZ2VuJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "Volkswagen logo"
     },
     {
       "id": "brand-logo-audi",
       "description": "Audi brand logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1688489190893-89e26dbed014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxBdWRpJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1688489190893-89e26dbed014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxBdWRpJTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDR8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "Audi logo"
     },
     {
@@ -59,6 +59,24 @@
       "description": "Peugeot brand logo.",
       "imageUrl": "https://images.unsplash.com/photo-1541486777492-1e53073ac1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxQZXVnZW90JTIwbG9nb3xlbnwwfHx8fDE3NjQ4NDMwMDV8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "Peugeot logo"
+    },
+    {
+      "id": "news-partnership",
+      "description": "Image for the new partnership news article.",
+      "imageUrl": "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHBhcnRuZXJzaGlwfGVufDB8fHx8MTc2NTEzMDc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business partnership"
+    },
+    {
+      "id": "news-maintenance",
+      "description": "Image for the car maintenance tips article.",
+      "imageUrl": "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYXIlMjBtYWludGVuYW5jZXxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car maintenance"
+    },
+    {
+      "id": "news-loyalty",
+      "description": "Image for the new loyalty program article.",
+      "imageUrl": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb3lhbHR5JTIwY2FyZHxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "loyalty card"
     },
     {
       "id": "product-1",
