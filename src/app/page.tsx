@@ -155,11 +155,13 @@ export default function Home() {
                     {brands.map((brand) => (
                         <CarouselItem key={brand.name} className="basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
                             <div className="p-2">
-                                <Card className="overflow-hidden aspect-square relative">
+                                <Card className="overflow-hidden aspect-square relative group">
                                     {brand.comingSoon && (
-                                      <Badge variant="secondary" className="absolute top-1 right-1 text-xs">
-                                        Coming Soon
-                                      </Badge>
+                                        <div className="absolute top-2 -right-10 z-10">
+                                            <div className="w-32 transform rotate-45 bg-green-500 text-center text-white font-semibold py-1 text-xs">
+                                                Coming Soon
+                                            </div>
+                                        </div>
                                     )}
                                     <CardContent className="flex flex-col items-center justify-center p-4 h-full w-full gap-2">
                                         <brand.icon className="w-12 h-12 text-muted-foreground" />
