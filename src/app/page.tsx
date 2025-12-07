@@ -8,17 +8,27 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star } from 'lucide-react';
+import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 
 export default function Home() {
   const { t } = useLanguage();
-  const brandLogos = PlaceHolderImages.filter(img => img.id.startsWith('brand-logo'));
   
   const actionItems = [
     { title: t('home.actions.dealer'), icon: Handshake, href: '/dealer' },
     { title: t('home.actions.shop'), icon: ShoppingCart, href: '/shop' },
     { title: t('home.actions.feedback'), icon: MessageSquare, href: '/feedback' },
+  ];
+
+  const brands = [
+    { name: 'NAITE', icon: Car },
+    { name: 'Volkswagen', icon: Car },
+    { name: 'Audi', icon: Car },
+    { name: 'Mercedes', icon: Car },
+    { name: 'BMW', icon: Car },
+    { name: 'Porsche', icon: Car },
+    { name: 'Renault', icon: Car },
+    { name: 'Peugeot', icon: Car },
   ];
 
   const testimonials = [
@@ -128,19 +138,13 @@ export default function Home() {
                 className="w-full max-w-6xl mx-auto"
             >
                 <CarouselContent>
-                    {brandLogos.map((logo) => (
-                        <CarouselItem key={logo.id} className="basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
+                    {brands.map((brand) => (
+                        <CarouselItem key={brand.name} className="basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-1/8">
                             <div className="p-2">
                                 <Card className="overflow-hidden aspect-square">
-                                    <CardContent className="flex items-center justify-center p-4 h-full w-full">
-                                    <Image 
-                                        src={logo.imageUrl}
-                                        alt={logo.description}
-                                        width={150}
-                                        height={150}
-                                        className="object-contain max-h-full max-w-full"
-                                        data-ai-hint={logo.imageHint}
-                                    />
+                                    <CardContent className="flex flex-col items-center justify-center p-4 h-full w-full gap-2">
+                                        <brand.icon className="w-12 h-12 text-muted-foreground" />
+                                        <p className="text-sm font-medium text-muted-foreground">{brand.name}</p>
                                     </CardContent>
                                 </Card>
                             </div>
