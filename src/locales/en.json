@@ -50,6 +50,28 @@
         "quote": "I was looking for a very specific part and they had it in stock! The website is easy to navigate and the whole process was seamless."
       }
     },
+    "news": {
+      "title": "Latest News",
+      "readMore": "Read More",
+      "partnership": {
+        "title": "New Partnership with Major European Supplier",
+        "category": "Business",
+        "description": "We are thrilled to announce a new partnership that will expand our inventory with high-quality European parts, bringing you even more options.",
+        "fullText": "Solution.am is excited to announce a strategic partnership with one of Europe's leading automotive parts manufacturers. This collaboration will significantly broaden our inventory, bringing a wider range of high-quality, certified European parts to the Armenian market. Our customers can now expect an even greater selection of reliable components for brands like BMW, Mercedes-Benz, Audi, and Volkswagen. This partnership underscores our commitment to providing the best possible products and creative solutions to meet the evolving needs of modern vehicles. We believe this will solidify our position as the top choice for auto parts in the region."
+      },
+      "maintenance": {
+        "title": "Tips for Summer Car Maintenance",
+        "category": "DIY",
+        "description": "The summer heat can be tough on your vehicle. Read our top tips for keeping your car in perfect condition during the hottest months.",
+        "fullText": "Summer in Armenia can be demanding on any vehicle. To avoid unexpected breakdowns, it’s crucial to perform regular maintenance. Here are our top tips:\n\n1. **Check Your Coolant:** Your engine's cooling system works overtime in the heat. Ensure your coolant is at the correct level and is clean. We recommend a coolant flush every two years.\n2. **Inspect Your Tires:** Hot asphalt increases tire pressure. Check your tire pressure in the morning before driving and ensure it matches your vehicle's recommended PSI. Don't forget to inspect the tread for wear.\n3. **Test Your Battery:** High temperatures can accelerate battery degradation. Visit us for a free battery test to ensure it holds a charge properly.\n4. **Protect Your Interior:** Use a sunshade to protect your dashboard from cracking and to keep the cabin temperature down.\n\nFollowing these simple steps can save you from costly repairs and keep you safe on the road all summer long."
+      },
+      "loyalty": {
+        "title": "Announcing Our New Loyalty Program",
+        "category": "Company",
+        "description": "We are excited to launch our new loyalty program to reward our amazing customers. Start earning points on every purchase today!",
+        "fullText": "At Solution.am, we value our customers. To show our appreciation, we are thrilled to launch the new \"Solution Rewards\" loyalty program! Starting today, every purchase you make, whether in-store or online, will earn you points that can be redeemed for discounts on future purchases, exclusive merchandise, and special services. Signing up is free and easy. Simply create an account on our website or ask one of our team members in-store. As a welcome bonus, you'll receive 100 points just for joining! Thank you for being a part of the Solution.am family. We look forward to rewarding your loyalty."
+      }
+    },
     "footer": {
       "tagline": "Creative Solutions for Modern Problems",
       "address": "Armenia, 0033, Yerevan, Hakob Hakobyan St., 3 Building",
