@@ -9,6 +9,8 @@ const mapProduct = (rawProduct: any, index: number): Product | null => {
     return null;
   }
 
+  const quantity = parseInt(rawProduct['Кол-во'], 10) || 0;
+
   return {
     id: index + 1,
     name: rawProduct['Описание'] || 'No name',
@@ -18,6 +20,7 @@ const mapProduct = (rawProduct: any, index: number): Product | null => {
     imageId: `product-${(index % 20) + 1}`, // Cycle through available placeholder images
     brand: rawProduct['Бренд'] || 'Unknown Brand',
     description: `Part No: ${rawProduct['Каталожный номер']}. ${rawProduct['Описание']}`,
+    comingSoon: quantity === 0,
   };
 };
 

@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden mb-16">
       {heroImage && (
         <Image
-          src={heroImage.imageUrl}
+          src='/public/assets/solution.am_background.jpg'
           alt={heroImage.description}
           fill
           className="object-cover z-0"

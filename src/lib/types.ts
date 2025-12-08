@@ -7,4 +7,5 @@ export type Product = {
   imageId: string;
   brand: string;
   description: string;
+  comingSoon: boolean;
 };

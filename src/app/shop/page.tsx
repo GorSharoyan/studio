@@ -170,7 +170,14 @@ export default function Shop() {
                   const partNumber = getPartNumber(product.description);
                   const ProductIcon = getProductIcon(product.description);
                   return (
-                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+                    <Card key={product.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col relative group">
+                       {product.comingSoon && (
+                          <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
+                            <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
+                              <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
+                            </div>
+                          </div>
+                        )}
                       <CardHeader className="p-0">
                         <div className="aspect-[4/3] relative bg-muted flex items-center justify-center">
                           <ProductIcon className="w-24 h-24 text-muted-foreground/50" />
@@ -190,7 +197,7 @@ export default function Shop() {
                                 <p className="font-bold text-primary text-2xl">{product.price} ֏</p>
                                 <p className="text-xs text-muted-foreground">Dealer Price (With VAT)</p>
                             </div>
-                            <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)}>{t('shop.quickView')}</Button>
+                            <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)} disabled={product.comingSoon}>{t('shop.quickView')}</Button>
                         </div>
                       </CardContent>
                     </Card>
