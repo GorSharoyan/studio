@@ -7,7 +7,7 @@ import { Header } from '@/components/Header';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search, Calendar, Newspaper } from 'lucide-react';
+import { Handshake, Mail, MapPin, MessageSquare, Phone, ShoppingCart, Star, Car, Lightbulb, Wrench, Fan, Cog, Droplets, Shield, Battery, Filter, Search, Calendar, Newspaper, Annoyed } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
@@ -203,7 +203,16 @@ export default function Home() {
                 const image = PlaceHolderImages.find(img => img.id === item.imageId);
                 return (
                     <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                        {image && (
+                        {item.id === 'coming-soon-features' ? (
+                          <div className="relative aspect-video bg-muted flex flex-col items-center justify-center gap-2">
+                            <Annoyed className="w-16 h-16 text-muted-foreground/50" />
+                            <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
+                                <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
+                                    <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
+                                </div>
+                            </div>
+                          </div>
+                        ) : image && (
                             <div className="relative aspect-video">
                                 <Image 
                                     src={image.imageUrl} 
@@ -285,6 +294,18 @@ export default function Home() {
             </DialogHeader>
             <div className="py-4">
                 {(() => {
+                    if (selectedNews.id === 'coming-soon-features') {
+                      return (
+                        <div className="relative aspect-video mb-6 rounded-lg overflow-hidden bg-muted flex flex-col items-center justify-center gap-2">
+                          <Annoyed className="w-24 h-24 text-muted-foreground/50" />
+                          <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
+                              <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
+                                  <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
+                              </div>
+                          </div>
+                        </div>
+                      )
+                    }
                     const image = PlaceHolderImages.find(img => img.id === selectedNews.imageId);
                     if (image) {
                         return (
