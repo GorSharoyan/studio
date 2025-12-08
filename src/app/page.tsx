@@ -205,7 +205,7 @@ export default function Home() {
                     <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                         {item.id === 'coming-soon-features' ? (
                           <div className="relative aspect-video bg-muted flex flex-col items-center justify-center gap-2">
-                            <Newspaper className="w-16 h-16 text-muted-foreground/50" />
+                            <Annoyed className="w-16 h-16 text-muted-foreground/50" />
                           </div>
                         ) : image && (
                             <div className="relative aspect-video">
