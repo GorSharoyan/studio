@@ -13,6 +13,7 @@ import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Hero } from '@/components/Hero';
 
 type NewsItem = {
   id: string;
@@ -25,8 +26,6 @@ export default function Home() {
   const { t } = useLanguage();
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
-
   const actionItems = [
     { title: t('home.actions.dealer'), icon: Handshake, href: '/dealer' },
     { title: t('home.actions.shop'), icon: ShoppingCart, href: '/shop' },
@@ -112,27 +111,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <section className="relative w-full text-white max-h-[600px] overflow-hidden">
-          {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={t('home.hero.subtitle')}
-              width={1920}
-              height={1080}
-              className="w-full h-auto object-cover max-h-[600px]"
-              priority
-              data-ai-hint={heroImage.imageHint}
-            />
-          )}
-          <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
-              {t('home.hero.title')}
-            </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto">
-              {t('home.hero.subtitle')}
-            </p>
-          </div>
-        </section>
+        <Hero />
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-headline font-bold mb-4">{t('home.about.title')}</h2>
