@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from './ui/card';
-import { Input } from './ui/input';
-import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { MessageCircle, X, Bot, User, Loader2 } from 'lucide-react';
 import { chat } from '@/app/actions';
 import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -51,7 +50,6 @@ const supportTopics = [
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
@@ -60,7 +58,6 @@ export function Chatbot() {
       setMessages([{ role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." }]);
     } else {
       setMessages([]);
-      setInput('');
       setIsLoading(false);
     }
   }, [isOpen]);
@@ -79,7 +76,6 @@ export function Chatbot() {
 
     const userMessage: Message = { role: 'user', text: messageText };
     setMessages(prev => [...prev, userMessage]);
-    setInput('');
     setIsLoading(true);
 
     const { response, error } = await chat(messageText);
@@ -95,11 +91,6 @@ export function Chatbot() {
     }
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    handleSendMessage(input);
-  }
-
   const hasUserMessages = messages.some(m => m.role === 'user');
 
   return (
@@ -192,20 +183,6 @@ export function Chatbot() {
                   </div>
                 </ScrollArea>
               </CardContent>
-              <CardFooter>
-                <form onSubmit={handleSubmit} className="flex w-full items-center space-x-2">
-                  <Input
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    placeholder="Ask a question..."
-                    disabled={isLoading}
-                    autoComplete="off"
-                  />
-                  <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
-                    {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-                  </Button>
-                </form>
-              </CardFooter>
             </Card>
           </motion.div>
         )}
