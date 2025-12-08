@@ -9,28 +9,25 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <section className="mb-16 text-center">
-        <div className="container mx-auto px-4 py-16 md:py-20">
-            <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
-            {t('home.hero.title')}
-            </h1>
-            <p className="mt-4 text-lg max-w-2xl mx-auto text-muted-foreground">
-            {t('home.hero.subtitle')}
-            </p>
-        </div>
+    <section className="relative w-full h-[50vh] text-white mb-16">
       {heroImage && (
-        <div className="container mx-auto px-4">
-            <div className="relative aspect-video rounded-lg overflow-hidden">
-                <Image
-                    src={heroImage.imageUrl}
-                    alt={heroImage.description}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={heroImage.imageHint}
-                />
-            </div>
-        </div>
+        <Image
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
+          fill
+          className="object-cover"
+          data-ai-hint={heroImage.imageHint}
+          priority
+        />
       )}
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
+          {t('home.hero.title')}
+        </h1>
+        <p className="mt-4 text-lg max-w-2xl mx-auto">
+          {t('home.hero.subtitle')}
+        </p>
+      </div>
     </section>
   );
 }
