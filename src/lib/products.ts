@@ -9,8 +9,6 @@ const mapProduct = (rawProduct: any, index: number): Product | null => {
     return null;
   }
 
-  const quantity = parseInt(rawProduct['Кол-во'], 10) || 0;
-
   return {
     id: index + 1,
     name: rawProduct['Описание'] || 'No name',
@@ -20,10 +18,46 @@ const mapProduct = (rawProduct: any, index: number): Product | null => {
     imageId: `product-${(index % 20) + 1}`, // Cycle through available placeholder images
     brand: rawProduct['Бренд'] || 'Unknown Brand',
     description: `Part No: ${rawProduct['Каталожный номер']}. ${rawProduct['Описание']}`,
-    comingSoon: quantity === 0,
+    comingSoon: false,
   };
 };
 
-export const products: Product[] = rawProducts.map(mapProduct).filter((p): p is Product => p !== null);
+const existingProducts: Product[] = rawProducts.map(mapProduct).filter((p): p is Product => p !== null);
 
-    
+const comingSoonProducts: Product[] = [
+    {
+        id: 1001,
+        name: "Performance Exhaust Systems",
+        price: 0,
+        country: "Germany",
+        type: "Performance",
+        imageId: "product-16",
+        brand: "FutureBrand",
+        description: "High-performance exhaust systems for various models. Coming Soon!",
+        comingSoon: true,
+    },
+    {
+        id: 1002,
+        name: "Advanced LED Headlight Kits",
+        price: 0,
+        country: "Japan",
+        type: "Lighting",
+        imageId: "product-6",
+        brand: "FutureBrand",
+        description: "Next-generation adaptive LED headlight kits. Coming Soon!",
+        comingSoon: true,
+    },
+    {
+        id: 1003,
+        name: "Turbocharger Upgrade Kits",
+        price: 0,
+        country: "USA",
+        type: "Performance",
+        imageId: "product-10",
+        brand: "FutureBrand",
+        description: "Complete turbocharger upgrade kits for enhanced power. Coming Soon!",
+        comingSoon: true,
+    }
+];
+
+export const products: Product[] = [...existingProducts, ...comingSoonProducts];

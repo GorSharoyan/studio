@@ -54,7 +54,7 @@ const getProductIcon = (description: string) => {
 
 
 export default function Shop() {
-  const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
+  const maxPrice = useMemo(() => Math.max(...products.filter(p => !p.comingSoon).map(p => p.price)), []);
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
   const [country, setCountry] = useState('all');
   const [productType, setProductType] = useState('all');
@@ -70,6 +70,12 @@ export default function Shop() {
 
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
+      if (product.comingSoon) {
+        // Always include "coming soon" products if no filters are actively hiding them.
+        const isTypeMatch = productType === 'all' || product.type === productType;
+        const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(searchTerm.toLowerCase()) || product.description.toLowerCase().includes(searchTerm.toLowerCase());
+        return isTypeMatch && isSearchMatch;
+      }
       const [minPrice, maxPrice] = priceRange;
       const isPriceMatch = product.price >= minPrice && product.price <= maxPrice;
       const isCountryMatch = country === 'all' || product.country === country;
@@ -194,8 +200,8 @@ export default function Shop() {
                         </div>
                         <div className="space-y-3">
                             <div className='text-right'>
-                                <p className="font-bold text-primary text-2xl">{product.price} ֏</p>
-                                <p className="text-xs text-muted-foreground">Dealer Price (With VAT)</p>
+                                <p className="font-bold text-primary text-2xl">{product.comingSoon ? 'TBD' : `${product.price} ֏`}</p>
+                                {!product.comingSoon && <p className="text-xs text-muted-foreground">Dealer Price (With VAT)</p>}
                             </div>
                             <Button variant="outline" className="w-full" onClick={() => handleOpenDialog(product)} disabled={product.comingSoon}>{t('shop.quickView')}</Button>
                         </div>
