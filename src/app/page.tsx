@@ -41,19 +41,19 @@ export default function Home() {
     { name: 'Mobil 1', icon: Droplets, comingSoon: true },
     { name: 'Hella', icon: Lightbulb },
     { name: 'Nissens', icon: Fan },
-    { name: 'Liqui Moly', icon: Droplets },
+    { name: 'Liqui Moly', icon: Droplets, comingSoon: true },
     { name: 'Brembo', icon: Shield },
     { name: 'Mahle', icon: Filter },
-    { name: 'Philips Automotive', icon: Lightbulb },
+    { name: 'Philips Automotive', icon: Lightbulb, comingSoon: true },
     { name: 'MANN-Filter', icon: Filter },
-    { name: 'TRW', icon: Shield },
+    { name: 'TRW', icon: Shield, comingSoon: true },
     { name: 'KYB', icon: Shield },
     { name: 'NGK', icon: Cog },
-    { name: 'Shell Helix', icon: Droplets },
+    { name: 'Shell Helix', icon: Droplets, comingSoon: true },
     { name: 'KoyoRad', icon: Fan },
     { name: 'Osram', icon: Lightbulb },
-    { name: 'SKF', icon: Cog },
-    { name: 'Sachs', icon: Cog },
+    { name: 'SKF', icon: Cog, comingSoon: true },
+    { name: 'Sachs', icon: Cog, comingSoon: true },
   ];
 
   const testimonials = [
@@ -172,9 +172,9 @@ export default function Home() {
                             <div className="p-2">
                                 <Card className="overflow-hidden aspect-square relative group">
                                     {brand.comingSoon && (
-                                      <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
-                                        <div className="transform -rotate-12 border-2 border-dashed border-white p-2">
-                                          <span className="text-white font-bold text-sm uppercase tracking-wider">Coming Soon</span>
+                                      <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
+                                        <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
+                                          <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
                                         </div>
                                       </div>
                                     )}
