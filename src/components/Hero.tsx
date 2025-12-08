@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative w-full text-white max-h-[600px] overflow-hidden">
       {heroImage && (
         <Image
-          src={heroImage.imageUrl}
+          src="/assets/solution.am_background.jpg"
           alt={t('home.hero.subtitle')}
           width={1920}
           height={1080}
