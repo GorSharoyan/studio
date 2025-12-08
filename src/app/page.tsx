@@ -107,9 +107,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <div className="container mx-auto px-4">
-            <Hero />
-        </div>
+        <Hero />
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-headline font-bold mb-4">{t('home.about.title')}</h2>
@@ -174,11 +172,11 @@ export default function Home() {
                             <div className="p-2">
                                 <Card className="overflow-hidden aspect-square relative group">
                                     {brand.comingSoon && (
-                                        <div className="absolute top-1 -right-8 z-10">
-                                            <div className="w-28 transform rotate-45 bg-green-500 text-center text-white font-semibold py-0.5 text-[10px]">
-                                                Coming Soon
-                                            </div>
+                                      <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
+                                        <div className="transform -rotate-12 border-2 border-dashed border-white p-2">
+                                          <span className="text-white font-bold text-sm uppercase tracking-wider">Coming Soon</span>
                                         </div>
+                                      </div>
                                     )}
                                     <CardContent className="flex flex-col items-center justify-center p-4 h-full w-full gap-2">
                                         <brand.icon className="w-12 h-12 text-muted-foreground" />
