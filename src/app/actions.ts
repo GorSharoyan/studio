@@ -3,6 +3,7 @@
 import { generateSolutions } from '@/ai/flows/generate-solutions-from-prompts';
 import { summarizeSolutions } from '@/ai/flows/summarize-solutions-for-quick-review';
 import { improveSolutionsBasedOnFeedback } from '@/ai/flows/improve-solutions-based-on-feedback';
+import { askChatbot } from '@/ai/flows/site-chatbot';
 
 export type Solution = {
   original: string;
@@ -54,4 +55,17 @@ export async function improve(prompt: string, solution: string, feedback: string
         console.error(error);
         return { improvedSolution: null, error: 'Failed to improve solution. Please try again.' };
     }
+}
+
+export async function chat(message: string): Promise<{ response: string | null, error: string | null }> {
+  if (!message) {
+    return { response: null, error: "Message cannot be empty." };
+  }
+  try {
+    const { response } = await askChatbot({ message });
+    return { response, error: null };
+  } catch (error) {
+    console.error(error);
+    return { response: null, error: "I'm sorry, I encountered an error. Please try again." };
+  }
 }

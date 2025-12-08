@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { CartProvider } from '@/hooks/use-cart';
 import { LanguageProvider } from '@/hooks/use-language';
+import { Chatbot } from '@/components/Chatbot';
 
 export const metadata: Metadata = {
   title: 'Solution.am',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <LanguageProvider>
           <CartProvider>
             {children}
+            <Chatbot />
           </CartProvider>
         </LanguageProvider>
         <Toaster />
