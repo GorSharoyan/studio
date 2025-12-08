@@ -105,7 +105,7 @@ export default function Home() {
     },
   ];
   
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
