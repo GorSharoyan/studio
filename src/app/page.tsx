@@ -13,6 +13,7 @@ import { Badge } from '@/components/ui/badge';
 import Autoplay from "embla-carousel-autoplay";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Hero } from '@/components/Hero';
 
 type NewsItem = {
   id: string;
@@ -110,6 +111,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
+        <Hero />
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-headline font-bold mb-4">{t('home.about.title')}</h2>
@@ -203,12 +205,7 @@ export default function Home() {
                     <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                         {item.id === 'coming-soon-features' ? (
                           <div className="relative aspect-video bg-muted flex flex-col items-center justify-center gap-2">
-                            <Annoyed className="w-16 h-16 text-muted-foreground/50" />
-                            <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
-                                <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
-                                    <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
-                                </div>
-                            </div>
+                            <Newspaper className="w-16 h-16 text-muted-foreground/50" />
                           </div>
                         ) : image && (
                             <div className="relative aspect-video">
@@ -295,12 +292,7 @@ export default function Home() {
                     if (selectedNews.id === 'coming-soon-features') {
                       return (
                         <div className="relative aspect-video mb-6 rounded-lg overflow-hidden bg-muted flex flex-col items-center justify-center gap-2">
-                          <Annoyed className="w-24 h-24 text-muted-foreground/50" />
-                          <div className="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
-                              <div className="transform -rotate-12 border-2 border-dashed border-green-400 p-2">
-                                  <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Coming Soon</span>
-                              </div>
-                          </div>
+                          <Newspaper className="w-24 h-24 text-muted-foreground/50" />
                         </div>
                       )
                     }

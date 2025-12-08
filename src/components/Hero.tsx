@@ -12,11 +12,10 @@ export function Hero() {
     <section className="relative w-full text-white max-h-[600px] overflow-hidden">
       {heroImage && (
         <Image
-          src="/assets/solution.am_background.jpg"
+          src={heroImage.imageUrl}
           alt={t('home.hero.subtitle')}
-          width={1920}
-          height={1080}
-          className="w-full h-auto object-cover max-h-[600px]"
+          fill
+          className="w-full h-auto object-cover"
           priority
           data-ai-hint={heroImage.imageHint}
         />
