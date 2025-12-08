@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { MessageCircle, X, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Bot, User, ArrowLeft } from 'lucide-react';
 import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Badge } from './ui/badge';
@@ -58,15 +58,18 @@ const supportAnswers: Record<string, string> = {
     'contact': "You can reach us at info@solution.am or call us at +37491989595. Our office is at Hakob Hakobyan St., 3 Building, Yerevan, Armenia."
 };
 
+const initialMessage: Message = { role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." };
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([initialMessage]);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  
+  const hasUserMessages = messages.some(m => m.role === 'user');
 
   useEffect(() => {
     if (isOpen) {
-      setMessages([{ role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." }]);
+      handleBackToTopics();
     } else {
       setMessages([]);
     }
@@ -86,9 +89,11 @@ export function Chatbot() {
     const botMessage: Message = { role: 'bot', text: supportAnswers[answerKey] || "I'm sorry, I don't have an answer for that." };
     setMessages(prev => [...prev, userMessage, botMessage]);
   };
-  
-  const hasUserMessages = messages.some(m => m.role === 'user');
 
+  const handleBackToTopics = () => {
+    setMessages([initialMessage]);
+  }
+  
   return (
     <>
       <AnimatePresence>
@@ -165,6 +170,14 @@ export function Chatbot() {
                                 ))}
                             </Accordion>
                         </div>
+                    )}
+                    {hasUserMessages && (
+                      <div className="pt-4 flex justify-center">
+                        <Button variant="outline" onClick={handleBackToTopics}>
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Back to Topics
+                        </Button>
+                      </div>
                     )}
                   </div>
                 </ScrollArea>
