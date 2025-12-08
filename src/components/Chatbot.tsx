@@ -108,7 +108,7 @@ export function Chatbot() {
             <Card className="w-80 h-[500px] flex flex-col shadow-2xl sm:w-96">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Bot className="w-5 h-5 text-primary" />
+                  <User className="w-5 h-5 text-primary" />
                   Solution.am Assistant
                 </CardTitle>
                 <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-7 w-7">
