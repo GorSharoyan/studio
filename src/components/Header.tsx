@@ -50,9 +50,10 @@ export function Header() {
     router.push('/contacts');
   };
 
-  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && searchQuery.trim()) {
-      router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 
@@ -91,16 +92,15 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center justify-end space-x-2 md:space-x-4">
-          <div className="relative hidden sm:block">
+          <form onSubmit={handleSearch} className="relative hidden sm:block">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder={t('header.searchPlaceholder')}
               className="pl-10 h-9 w-40 lg:w-64"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={handleSearch}
             />
-          </div>
+          </form>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="relative hover:bg-accent">

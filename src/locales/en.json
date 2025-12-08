@@ -228,5 +228,16 @@
         }
       }
     }
+  },
+  "search": {
+    "title": "Search Results",
+    "resultsFoundFor": "results found for",
+    "noResultsFoundFor": "No results found for",
+    "products": "Products",
+    "news": "News",
+    "pages": "Pages",
+    "viewProduct": "View Product",
+    "readMore": "Read More",
+    "goToPage": "Go to Page"
   }
 }

@@ -10,7 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/hooks/use-cart';
 import type { Product } from '@/lib/types';
@@ -56,7 +55,7 @@ const getProductIcon = (description: string) => {
 
 function ShopPageContent() {
   const searchParams = useSearchParams();
-  const initialSearchTerm = searchParams.get('search') || '';
+  const initialSearchTerm = searchParams.get('q') || '';
 
   const maxPrice = useMemo(() => Math.max(...products.filter(p => !p.comingSoon).map(p => p.price)), []);
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
