@@ -56,7 +56,6 @@ const prompt = ai.definePrompt({
   - Use the answers from "Support Topics & Answers" when the user asks one of those specific questions.
 
   User Question: {{{message}}}
-  Your Answer:
   `,
 });
 
