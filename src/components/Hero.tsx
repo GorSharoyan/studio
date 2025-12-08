@@ -6,13 +6,13 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Hero() {
   const { t } = useLanguage();
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background-2');
 
   return (
     <section className="relative text-foreground py-20 md:py-32 rounded-lg overflow-hidden mb-16">
       {(
         <Image
-          src='//public/assets/solution.am_background.jpg'
+          src='/assets/solution.am_background.jpg'
           alt={heroImage.description}
           fill
           className="object-cover z-0"
