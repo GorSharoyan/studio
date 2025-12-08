@@ -9,14 +9,14 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <section className="relative w-full text-white max-h-[500px] overflow-hidden">
+    <section className="relative w-full text-white max-h-[600px] overflow-hidden">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
           alt={t('home.hero.subtitle')}
           width={1920}
           height={1080}
-          className="w-full h-auto object-cover max-h-[500px]"
+          className="w-full h-auto object-cover max-h-[600px]"
           priority
           data-ai-hint={heroImage.imageHint}
         />
