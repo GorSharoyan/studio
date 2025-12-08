@@ -71,6 +71,12 @@
         "category": "Company",
         "description": "We are excited to launch our new loyalty program to reward our amazing customers. Start earning points on every purchase today!",
         "fullText": "At Solution.am, we value our customers. To show our appreciation, we are thrilled to launch the new \"Solution Rewards\" loyalty program! Starting today, every purchase you make, whether in-store or online, will earn you points that can be redeemed for discounts on future purchases, exclusive merchandise, and special services. Signing up is free and easy. Simply create an account on our website or ask one of our team members in-store. As a welcome bonus, you'll receive 100 points just for joining! Thank you for being a part of the Solution.am family. We look forward to rewarding your loyalty."
+      },
+      "coming-soon-features": {
+        "title": "Exciting New Features Coming Soon!",
+        "category": "Announcement",
+        "description": "We're working hard on new features to improve your experience. Get a sneak peek at what's coming next to Solution.am.",
+        "fullText": "Get ready for an even better experience with Solution.am! Our team is hard at work developing new features and expanding our product lines to serve you better. In the coming months, you can look forward to:\n\n- **Expanded Product Catalog:** We're adding hundreds of new parts from top brands, including high-performance upgrades and specialty tools.\n- **Interactive Part-Finder:** A new tool that will help you find the exact part for your vehicle model with ease.\n- **Technical Support Chat:** Get real-time help from our experts right on our website.\n\nWe are committed to continuous improvement and innovation. Stay tuned for these exciting updates that will make managing your vehicle's needs simpler and more efficient than ever before. Thank you for your continued support!"
       }
     },
     "footer": {
@@ -169,3 +175,5 @@
     }
   }
 }
+
+    

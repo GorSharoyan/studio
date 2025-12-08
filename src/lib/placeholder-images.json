@@ -63,20 +63,26 @@
     {
       "id": "news-partnership",
       "description": "Image for the new partnership news article.",
-      "imageUrl": "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHBhcnRuZXJzaGlwfGVufDB8fHx8MTc2NTEzMDc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHBhcnRuZXJzaGlwfGVufDB8fHx8MTc2NTEzMDc4OHww&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "business partnership"
     },
     {
       "id": "news-maintenance",
       "description": "Image for the car maintenance tips article.",
-      "imageUrl": "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYXIlMjBtYWludGVuYW5jZXxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYXIlMjBtYWludGVuYW5jZXxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "car maintenance"
     },
     {
       "id": "news-loyalty",
       "description": "Image for the new loyalty program article.",
-      "imageUrl": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb3lhbHR5JTIwY2FyZHxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb3lhbHR5JTIwY2FyZHxlbnwwfHx8fDE3NjUxMzA3ODZ8MA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "loyalty card"
+    },
+    {
+      "id": "news-coming-soon",
+      "description": "Image for the coming soon article.",
+      "imageUrl": "https://images.unsplash.com/photo-1579298245158-30e7583a6a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNzY1MTM1NjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "under construction"
     },
     {
       "id": "product-1",
