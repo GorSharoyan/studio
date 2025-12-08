@@ -113,7 +113,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <section className="relative w-full text-white max-h-[600px] overflow-hidden">
+        <section className="relative w-full text-white h-64 sm:h-80 md:h-96">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -126,7 +126,7 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
             <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
-              {t('home.hero.title')}
+              Solution.am
             </h1>
             <p className="mt-4 text-lg max-w-2xl mx-auto">
               {t('home.hero.subtitle')}
