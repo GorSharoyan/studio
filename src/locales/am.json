@@ -6,7 +6,7 @@
     "contacts": "Կոնտակտներ",
     "dealer": "Դառնալ դիլեր",
     "feedback": "Թողնել կարծիք",
-    "searchPlaceholder": "Որոնել ապրանքներ...",
+    "searchPlaceholder": "Որոնում...",
     "cart": {
       "title": "Զամբյուղ",
       "total": "Ընդհանուր",
@@ -160,7 +160,7 @@
       "productType": "Ապրանքի տեսակ",
       "allTypes": "Բոլոր տեսակները",
       "searchByName": "Որոնել ըստ անվան",
-      "searchPlaceholder": "օրինակ՝ Արգելակման կոճղակներ"
+      "searchPlaceholder": "Որոնում..."
     },
     "addToCart": "Ավելացնել զամբյուղ",
     "noProducts": "Ձեր ընթացիկ ֆիլտրերին համապատասխանող ապրանքներ չկան։",
@@ -241,3 +241,5 @@
     "goToPage": "Անցնել էջ"
   }
 }
+
+    

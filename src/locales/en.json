@@ -6,7 +6,7 @@
     "contacts": "Contacts",
     "dealer": "Become a Dealer",
     "feedback": "Leave a Feedback",
-    "searchPlaceholder": "Search products...",
+    "searchPlaceholder": "Search",
     "cart": {
       "title": "Shopping Cart",
       "total": "Total",
@@ -160,7 +160,7 @@
       "productType": "Product Type",
       "allTypes": "All Types",
       "searchByName": "Search by name",
-      "searchPlaceholder": "e.g., Brake Pads"
+      "searchPlaceholder": "Search..."
     },
     "addToCart": "Add to Cart",
     "noProducts": "No products match your current filters.",
@@ -241,3 +241,5 @@
     "goToPage": "Go to Page"
   }
 }
+
+    

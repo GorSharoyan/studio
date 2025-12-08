@@ -6,7 +6,7 @@
     "contacts": "Контакты",
     "dealer": "Стать дилером",
     "feedback": "Оставить отзыв",
-    "searchPlaceholder": "Поиск товаров...",
+    "searchPlaceholder": "Поиск...",
     "cart": {
       "title": "Корзина",
       "total": "Итого",
@@ -160,7 +160,7 @@
       "productType": "Тип товара",
       "allTypes": "Все типы",
       "searchByName": "Поиск по названию",
-      "searchPlaceholder": "например, тормозные колодки"
+      "searchPlaceholder": "Поиск..."
     },
     "addToCart": "Добавить в корзину",
     "noProducts": "Нет товаров, соответствующих вашим фильтрам.",
@@ -241,3 +241,5 @@
     "goToPage": "Перейти на страницу"
   }
 }
+
+    
