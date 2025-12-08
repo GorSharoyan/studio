@@ -9,7 +9,7 @@
     {
       "id": "hero-background-2",
       "description": "Background image for the hero section, showing car parts like radiators and lights.",
-      "imageUrl": "/public/assets/solution.am_background.jpg",
+      "imageUrl": "/assets/solution.am_background.jpg",
       "imageHint": "car parts"
     },
     {
@@ -81,7 +81,7 @@
     {
       "id": "news-coming-soon",
       "description": "Image for the coming soon article.",
-      "imageUrl": "https://images.unsplash.com/photo-1579298245158-30e7583a6a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNzY1MTM1NjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1579298245158-30e7583a6a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNzY1MTM1NjQ0fDA&ixlib.rb-4.1.0&q=80&w=1080",
       "imageHint": "under construction"
     },
     {
