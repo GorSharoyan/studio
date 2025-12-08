@@ -8,11 +8,19 @@ import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react';
 import { chat } from '@/app/actions';
 import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Badge } from './ui/badge';
 
 type Message = {
   role: 'user' | 'bot';
   text: string;
 };
+
+const supportTopics = [
+    "How to become a dealer?",
+    "What kind of products do you sell?",
+    "Where are you located?",
+    "How can I give feedback?",
+];
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +31,11 @@ export function Chatbot() {
 
   useEffect(() => {
     if (isOpen) {
-      setMessages([{ role: 'bot', text: "Hello! How can I help you today? Ask me anything about Solution.am." }]);
+      setMessages([{ role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." }]);
     } else {
       setMessages([]);
       setInput('');
+      setIsLoading(false);
     }
   }, [isOpen]);
 
@@ -39,16 +48,15 @@ export function Chatbot() {
     }
   }, [messages]);
 
-  const handleSendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isLoading) return;
+  const handleSendMessage = async (messageText: string) => {
+    if (!messageText.trim() || isLoading) return;
 
-    const userMessage: Message = { role: 'user', text: input };
+    const userMessage: Message = { role: 'user', text: messageText };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
 
-    const { response, error } = await chat(input);
+    const { response, error } = await chat(messageText);
 
     setIsLoading(false);
     
@@ -60,6 +68,13 @@ export function Chatbot() {
       setMessages(prev => [...prev, botMessage]);
     }
   };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSendMessage(input);
+  }
+
+  const hasUserMessages = messages.some(m => m.role === 'user');
 
   return (
     <>
@@ -72,7 +87,7 @@ export function Chatbot() {
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="fixed bottom-24 right-4 z-50"
           >
-            <Card className="w-80 h-[500px] flex flex-col shadow-2xl">
+            <Card className="w-80 h-[500px] flex flex-col shadow-2xl sm:w-96">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center gap-2 text-lg">
                   <Bot className="w-5 h-5 text-primary" />
@@ -83,7 +98,7 @@ export function Chatbot() {
                 </Button>
               </CardHeader>
               <CardContent className="flex-1 overflow-hidden p-0">
-                <ScrollArea className="h-full p-6" ref={scrollAreaRef}>
+                <ScrollArea className="h-full p-4" ref={scrollAreaRef}>
                   <div className="space-y-4">
                     {messages.map((message, index) => (
                       <div
@@ -98,13 +113,13 @@ export function Chatbot() {
                           </div>
                         )}
                         <div
-                          className={`max-w-[80%] rounded-lg px-3 py-2 ${
+                          className={`max-w-[85%] rounded-lg px-3 py-2 ${
                             message.role === 'bot'
                               ? 'bg-muted'
                               : 'bg-primary text-primary-foreground'
                           }`}
                         >
-                          {message.text}
+                          <p className="whitespace-pre-wrap">{message.text}</p>
                         </div>
                         {message.role === 'user' && (
                             <div className="w-6 h-6 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center flex-shrink-0">
@@ -113,6 +128,22 @@ export function Chatbot() {
                         )}
                       </div>
                     ))}
+                     {messages.length === 1 && !hasUserMessages && (
+                        <div className="pt-2">
+                           <div className="flex flex-wrap gap-2">
+                            {supportTopics.map(topic => (
+                                <Badge 
+                                    key={topic}
+                                    variant="outline"
+                                    className="cursor-pointer hover:bg-accent"
+                                    onClick={() => handleSendMessage(topic)}
+                                >
+                                    {topic}
+                                </Badge>
+                            ))}
+                           </div>
+                        </div>
+                    )}
                     {isLoading && (
                         <div className="flex gap-2 text-sm">
                             <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
@@ -127,7 +158,7 @@ export function Chatbot() {
                 </ScrollArea>
               </CardContent>
               <CardFooter>
-                <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
+                <form onSubmit={handleSubmit} className="flex w-full items-center space-x-2">
                   <Input
                     value={input}
                     onChange={e => setInput(e.target.value)}

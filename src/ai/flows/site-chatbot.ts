@@ -37,8 +37,12 @@ const prompt = ai.definePrompt({
   - Contact: info@solution.am, +37491989595, Hakob Hakobyan St., 3 Building, Yerevan, Armenia.
   - Products: We sell a wide variety of car parts, including lamps (halogen, LED, xenon), filters, brake parts, and engine components. We carry brands like NAITE, Bosch, Hella, and Nissens.
   - Services: We help customers find the right parts, offer a loyalty program, and have a network of dealers.
-  - How to become a dealer: Interested parties can fill out the form on our '/dealer' page.
-  - How to give feedback: Customers can use the form on the '/feedback' page.
+  
+  **Support Topics:**
+  - How to become a dealer: To become a dealer, interested parties can fill out the form on our '/dealer' page on the website.
+  - How to give feedback: Customers can use the form on the '/feedback' page to share their thoughts.
+  - Where are you located?: We are located at Hakob Hakobyan St., 3 Building, Yerevan, Armenia.
+  - What products do you sell?: We sell a wide variety of car parts, including lamps (halogen, LED, xenon), filters, brake parts, and engine components from brands like NAITE, Bosch, Hella, and Nissens. You can see our full catalog on the '/shop' page.
   - Shop: Our online shop is available at '/shop'.
 
   **Rules:**
