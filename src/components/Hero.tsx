@@ -9,10 +9,10 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <section className="relative w-full h-[50vh] text-white">
+    <section className="relative w-full h-[100vh] text-white">
       {heroImage && (
         <Image
-          src="/assets/solution.am_background.jpg"
+          src={heroImage.imageUrl}
           alt={heroImage.description}
           fill
           className="object-cover"
