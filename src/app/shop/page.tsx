@@ -1,7 +1,9 @@
+
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -52,35 +54,41 @@ const getProductIcon = (description: string) => {
   return iconMap.default;
 };
 
+function ShopPageContent() {
+  const searchParams = useSearchParams();
+  const initialSearchTerm = searchParams.get('search') || '';
 
-export default function Shop() {
   const maxPrice = useMemo(() => Math.max(...products.filter(p => !p.comingSoon).map(p => p.price)), []);
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
   const [country, setCountry] = useState('all');
   const [productType, setProductType] = useState('all');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [dialogQuantity, setDialogQuantity] = useState(1);
   const { addToCart } = useCart();
   const { toast } = useToast();
   const { t } = useLanguage();
 
+  useEffect(() => {
+    setSearchTerm(initialSearchTerm);
+  }, [initialSearchTerm]);
+
   const countries = useMemo(() => ['all', ...Array.from(new Set(products.map(p => p.country)))], []);
   const productTypes = useMemo(() => ['all', ...Array.from(new Set(products.map(p => p.type)))], []);
 
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
+      const lowerSearchTerm = searchTerm.toLowerCase();
       if (product.comingSoon) {
-        // Always include "coming soon" products if no filters are actively hiding them.
         const isTypeMatch = productType === 'all' || product.type === productType;
-        const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(searchTerm.toLowerCase()) || product.description.toLowerCase().includes(searchTerm.toLowerCase());
+        const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(lowerSearchTerm) || product.description.toLowerCase().includes(lowerSearchTerm);
         return isTypeMatch && isSearchMatch;
       }
       const [minPrice, maxPrice] = priceRange;
       const isPriceMatch = product.price >= minPrice && product.price <= maxPrice;
       const isCountryMatch = country === 'all' || product.country === country;
       const isTypeMatch = productType === 'all' || product.type === productType;
-      const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const isSearchMatch = searchTerm === '' || product.name.toLowerCase().includes(lowerSearchTerm) || product.description.toLowerCase().includes(lowerSearchTerm);
       return isPriceMatch && isCountryMatch && isTypeMatch && isSearchMatch;
     });
   }, [priceRange, country, productType, searchTerm]);
@@ -268,4 +276,12 @@ export default function Shop() {
       )}
     </div>
   );
+}
+
+export default function Shop() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ShopPageContent />
+    </Suspense>
+  )
 }

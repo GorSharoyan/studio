@@ -28,6 +28,7 @@ import { useLanguage, languages } from '@/hooks/use-language';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Input } from './ui/input';
+import { useState } from 'react';
 
 const getProductImage = (imageId: string) => {
     return PlaceHolderImages.find(img => img.id === imageId) || { imageUrl: 'https://placehold.co/64x64', imageHint: 'placeholder'};
@@ -38,6 +39,7 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const { toast } = useToast();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCheckout = () => {
     toast({
@@ -46,6 +48,12 @@ export function Header() {
     });
     clearCart();
     router.push('/contacts');
+  };
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
   };
 
   return (
@@ -88,6 +96,9 @@ export function Header() {
             <Input
               placeholder={t('header.searchPlaceholder')}
               className="pl-10 h-9 w-40 lg:w-64"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
             />
           </div>
           <Sheet>
