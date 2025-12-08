@@ -9,6 +9,7 @@ import { chat } from '@/app/actions';
 import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Badge } from './ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 type Message = {
   role: 'user' | 'bot';
@@ -16,10 +17,35 @@ type Message = {
 };
 
 const supportTopics = [
-    "How to become a dealer?",
-    "What kind of products do you sell?",
-    "Where are you located?",
-    "How can I give feedback?",
+    {
+        category: "General",
+        topics: [
+            "What is Solution.am?",
+            "Where are you located?",
+        ]
+    },
+    {
+        category: "Products",
+        topics: [
+            "What kind of products do you sell?",
+            "Do you sell LED lamps?",
+            "What brands do you carry?",
+        ]
+    },
+    {
+        category: "Partnership",
+        topics: [
+            "How to become a dealer?",
+            "What are the benefits of being a dealer?",
+        ]
+    },
+    {
+        category: "Customer Service",
+        topics: [
+            "How can I give feedback?",
+            "What is your contact information?",
+        ]
+    },
 ];
 
 export function Chatbot() {
@@ -130,18 +156,27 @@ export function Chatbot() {
                     ))}
                      {messages.length === 1 && !hasUserMessages && (
                         <div className="pt-2">
-                           <div className="flex flex-wrap gap-2">
-                            {supportTopics.map(topic => (
-                                <Badge 
-                                    key={topic}
-                                    variant="outline"
-                                    className="cursor-pointer hover:bg-accent"
-                                    onClick={() => handleSendMessage(topic)}
-                                >
-                                    {topic}
-                                </Badge>
-                            ))}
-                           </div>
+                           <Accordion type="single" collapsible className="w-full">
+                                {supportTopics.map(item => (
+                                    <AccordionItem value={item.category} key={item.category}>
+                                        <AccordionTrigger className="text-sm font-semibold hover:no-underline py-2">{item.category}</AccordionTrigger>
+                                        <AccordionContent className="pb-2">
+                                            <div className="flex flex-wrap gap-2">
+                                                {item.topics.map(topic => (
+                                                    <Badge 
+                                                        key={topic}
+                                                        variant="outline"
+                                                        className="cursor-pointer hover:bg-accent"
+                                                        onClick={() => handleSendMessage(topic)}
+                                                    >
+                                                        {topic}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
                         </div>
                     )}
                     {isLoading && (
