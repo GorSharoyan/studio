@@ -8,63 +8,64 @@ import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Badge } from './ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+import { useLanguage } from '@/hooks/use-language';
 
 type Message = {
   role: 'user' | 'bot';
   text: string;
 };
 
-const supportTopics = [
-    {
-        category: "General",
-        topics: [
-            { key: 'what-is', question: "What is Solution.am?"},
-            { key: 'location', question: "Where are you located?"},
-        ]
-    },
-    {
-        category: "Products",
-        topics: [
-            { key: 'products', question: "What kind of products do you sell?"},
-            { key: 'led-lamps', question: "Do you sell LED lamps?"},
-            { key: 'brands', question: "What brands do you carry?"},
-        ]
-    },
-    {
-        category: "Partnership",
-        topics: [
-            { key: 'become-dealer', question: "How to become a dealer?"},
-            { key: 'dealer-benefits', question: "What are the benefits of being a dealer?"},
-        ]
-    },
-    {
-        category: "Customer Service",
-        topics: [
-            { key: 'feedback', question: "How can I give feedback?"},
-            { key: 'contact', question: "What is your contact information?"},
-        ]
-    },
-];
-
-const supportAnswers: Record<string, string> = {
-    'what-is': 'Solution.am, established in 2015, is a leading reseller and importer of high-quality automobile parts in Armenia. Our slogan is "Creative Solutions for Modern Problems".',
-    'location': "We are located at Hakob Hakobyan St., 3 Building, Yerevan, Armenia. You can find a map on our '/contacts' page.",
-    'products': "We sell a wide variety of car parts, including lamps (halogen, LED, xenon), filters, brake parts, and engine components. You can see our full catalog on the '/shop' page.",
-    'led-lamps': "Yes, we sell a wide variety of lamps, including LED, xenon, and halogen types. You can find them in our '/shop' section.",
-    'brands': "We carry many top brands, including NAITE, Bosch, Hella, and Nissens. You can see a full list of our partner brands on our home page.",
-    'become-dealer': "To become a dealer, interested parties can fill out the application form on our '/dealer' page on the website. As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business. We'd love to hear from you!",
-    'dealer-benefits': "As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business.",
-    'feedback': "We value your opinion! Customers can use the form on the '/feedback' page to share their thoughts and help us improve.",
-    'contact': "You can reach us at info@solution.am or call us at +37491989595. Our office is at Hakob Hakobyan St., 3 Building, Yerevan, Armenia."
-};
-
-const initialMessage: Message = { role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." };
-
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([initialMessage]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   
+  const supportTopics = [
+      {
+          category: t('chatbot.topics.general.category'),
+          topics: [
+              { key: 'what-is', question: t('chatbot.topics.general.what-is.question')},
+              { key: 'location', question: t('chatbot.topics.general.location.question')},
+          ]
+      },
+      {
+          category: t('chatbot.topics.products.category'),
+          topics: [
+              { key: 'products', question: t('chatbot.topics.products.products.question')},
+              { key: 'led-lamps', question: t('chatbot.topics.products.led-lamps.question')},
+              { key: 'brands', question: t('chatbot.topics.products.brands.question')},
+          ]
+      },
+      {
+          category: t('chatbot.topics.partnership.category'),
+          topics: [
+              { key: 'become-dealer', question: t('chatbot.topics.partnership.become-dealer.question')},
+              { key: 'dealer-benefits', question: t('chatbot.topics.partnership.dealer-benefits.question')},
+          ]
+      },
+      {
+          category: t('chatbot.topics.customer-service.category'),
+          topics: [
+              { key: 'feedback', question: t('chatbot.topics.customer-service.feedback.question')},
+              { key: 'contact', question: t('chatbot.topics.customer-service.contact.question')},
+          ]
+      },
+  ];
+
+  const supportAnswers: Record<string, string> = {
+      'what-is': t('chatbot.topics.general.what-is.answer'),
+      'location': t('chatbot.topics.general.location.answer'),
+      'products': t('chatbot.topics.products.products.answer'),
+      'led-lamps': t('chatbot.topics.products.led-lamps.answer'),
+      'brands': t('chatbot.topics.products.brands.answer'),
+      'become-dealer': t('chatbot.topics.partnership.become-dealer.answer'),
+      'dealer-benefits': t('chatbot.topics.partnership.dealer-benefits.answer'),
+      'feedback': t('chatbot.topics.customer-service.feedback.answer'),
+      'contact': t('chatbot.topics.customer-service.contact.answer')
+  };
+  
+  const initialMessage: Message = { role: 'bot', text: t('chatbot.initialMessage') };
   const hasUserMessages = messages.some(m => m.role === 'user');
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export function Chatbot() {
     } else {
       setMessages([]);
     }
-  }, [isOpen]);
+  }, [isOpen, t]);
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -109,7 +110,7 @@ export function Chatbot() {
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center gap-2 text-lg">
                   <User className="w-5 h-5 text-primary" />
-                  Solution.am Assistant
+                  {t('chatbot.title')}
                 </CardTitle>
                 <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-7 w-7">
                     <X className="h-4 w-4" />
@@ -175,7 +176,7 @@ export function Chatbot() {
                       <div className="pt-4 flex justify-center">
                         <Button variant="outline" onClick={handleBackToTopics}>
                           <ArrowLeft className="mr-2 h-4 w-4" />
-                          Back to Topics
+                          {t('chatbot.backToTopics')}
                         </Button>
                       </div>
                     )}
