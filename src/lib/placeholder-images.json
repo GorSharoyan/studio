@@ -3,8 +3,8 @@
     {
       "id": "hero-background",
       "description": "Background image for the hero section, showing a variety of car parts.",
-      "imageUrl": "https://images.unsplash.com/photo-1579492450090-4cda894a3951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXIlMjBwYXJ0c3xlbnwwfHx8fDE3NzIxNzQwNDV8MA&ixlib.rb-4.1.0&q=80&w=1080",
-      "imageHint": "car parts"
+      "imageUrl": "https://images.unsplash.com/photo-1553522944-8f197ef51593?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXIlMjBlbmdpbmV8ZW58MHx8fHwxNzc0MTg0NTEyfDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "car engine"
     },
     {
       "id": "brand-logo-naite",
