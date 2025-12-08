@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { MessageCircle, X, Bot, User, Loader2 } from 'lucide-react';
-import { chat } from '@/app/actions';
+import { MessageCircle, X, Bot, User } from 'lucide-react';
 import { ScrollArea } from './ui/scroll-area';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Badge } from './ui/badge';
@@ -19,38 +18,50 @@ const supportTopics = [
     {
         category: "General",
         topics: [
-            "What is Solution.am?",
-            "Where are you located?",
+            { key: 'what-is', question: "What is Solution.am?"},
+            { key: 'location', question: "Where are you located?"},
         ]
     },
     {
         category: "Products",
         topics: [
-            "What kind of products do you sell?",
-            "Do you sell LED lamps?",
-            "What brands do you carry?",
+            { key: 'products', question: "What kind of products do you sell?"},
+            { key: 'led-lamps', question: "Do you sell LED lamps?"},
+            { key: 'brands', question: "What brands do you carry?"},
         ]
     },
     {
         category: "Partnership",
         topics: [
-            "How to become a dealer?",
-            "What are the benefits of being a dealer?",
+            { key: 'become-dealer', question: "How to become a dealer?"},
+            { key: 'dealer-benefits', question: "What are the benefits of being a dealer?"},
         ]
     },
     {
         category: "Customer Service",
         topics: [
-            "How can I give feedback?",
-            "What is your contact information?",
+            { key: 'feedback', question: "How can I give feedback?"},
+            { key: 'contact', question: "What is your contact information?"},
         ]
     },
 ];
 
+const supportAnswers: Record<string, string> = {
+    'what-is': 'Solution.am, established in 2015, is a leading reseller and importer of high-quality automobile parts in Armenia. Our slogan is "Creative Solutions for Modern Problems".',
+    'location': "We are located at Hakob Hakobyan St., 3 Building, Yerevan, Armenia. You can find a map on our '/contacts' page.",
+    'products': "We sell a wide variety of car parts, including lamps (halogen, LED, xenon), filters, brake parts, and engine components. You can see our full catalog on the '/shop' page.",
+    'led-lamps': "Yes, we sell a wide variety of lamps, including LED, xenon, and halogen types. You can find them in our '/shop' section.",
+    'brands': "We carry many top brands, including NAITE, Bosch, Hella, and Nissens. You can see a full list of our partner brands on our home page.",
+    'become-dealer': "To become a dealer, interested parties can fill out the application form on our '/dealer' page on the website. As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business. We'd love to hear from you!",
+    'dealer-benefits': "As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business.",
+    'feedback': "We value your opinion! Customers can use the form on the '/feedback' page to share their thoughts and help us improve.",
+    'contact': "You can reach us at info@solution.am or call us at +37491989595. Our office is at Hakob Hakobyan St., 3 Building, Yerevan, Armenia."
+};
+
+
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,7 +69,6 @@ export function Chatbot() {
       setMessages([{ role: 'bot', text: "Hello! How can I help you today? You can ask me a question or choose from the topics below." }]);
     } else {
       setMessages([]);
-      setIsLoading(false);
     }
   }, [isOpen]);
 
@@ -71,24 +81,10 @@ export function Chatbot() {
     }
   }, [messages]);
 
-  const handleSendMessage = async (messageText: string) => {
-    if (!messageText.trim() || isLoading) return;
-
-    const userMessage: Message = { role: 'user', text: messageText };
-    setMessages(prev => [...prev, userMessage]);
-    setIsLoading(true);
-
-    const { response, error } = await chat(messageText);
-
-    setIsLoading(false);
-    
-    if (error || !response) {
-      const errorMessage: Message = { role: 'bot', text: error || "I'm sorry, something went wrong." };
-      setMessages(prev => [...prev, errorMessage]);
-    } else {
-      const botMessage: Message = { role: 'bot', text: response };
-      setMessages(prev => [...prev, botMessage]);
-    }
+  const handleTopicClick = (question: string, answerKey: string) => {
+    const userMessage: Message = { role: 'user', text: question };
+    const botMessage: Message = { role: 'bot', text: supportAnswers[answerKey] || "I'm sorry, I don't have an answer for that." };
+    setMessages(prev => [...prev, userMessage, botMessage]);
   };
   
   const hasUserMessages = messages.some(m => m.role === 'user');
@@ -145,7 +141,7 @@ export function Chatbot() {
                         )}
                       </div>
                     ))}
-                     {messages.length === 1 && !hasUserMessages && (
+                     {!hasUserMessages && (
                         <div className="pt-2">
                            <Accordion type="single" collapsible className="w-full">
                                 {supportTopics.map(item => (
@@ -155,12 +151,12 @@ export function Chatbot() {
                                             <div className="flex flex-wrap gap-2">
                                                 {item.topics.map(topic => (
                                                     <Badge 
-                                                        key={topic}
+                                                        key={topic.key}
                                                         variant="outline"
                                                         className="cursor-pointer hover:bg-accent"
-                                                        onClick={() => handleSendMessage(topic)}
+                                                        onClick={() => handleTopicClick(topic.question, topic.key)}
                                                     >
-                                                        {topic}
+                                                        {topic.question}
                                                     </Badge>
                                                 ))}
                                             </div>
@@ -168,16 +164,6 @@ export function Chatbot() {
                                     </AccordionItem>
                                 ))}
                             </Accordion>
-                        </div>
-                    )}
-                    {isLoading && (
-                        <div className="flex gap-2 text-sm">
-                            <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
-                                <Bot className="w-4 h-4" />
-                            </div>
-                            <div className="max-w-[80%] rounded-lg px-3 py-2 bg-muted flex items-center">
-                                <Loader2 className="w-4 h-4 animate-spin" />
-                            </div>
                         </div>
                     )}
                   </div>
