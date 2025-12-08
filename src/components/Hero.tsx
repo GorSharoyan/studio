@@ -9,10 +9,10 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
   return (
-    <section className="relative w-full h-[50vh] text-white mb-16">
+    <section className="relative w-full h-[50vh] text-white">
       {heroImage && (
         <Image
-          src={heroImage.imageUrl}
+          src="/assets/solution.am_background.jpg"
           alt={heroImage.description}
           fill
           className="object-cover"
@@ -20,7 +20,7 @@ export function Hero() {
           priority
         />
       )}
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+      <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
         <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
           {t('home.hero.title')}
         </h1>
