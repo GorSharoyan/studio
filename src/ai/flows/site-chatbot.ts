@@ -44,7 +44,7 @@ const prompt = ai.definePrompt({
   - What kind of products do you sell?: We sell a wide variety of car parts, including lamps (halogen, LED, xenon), filters, brake parts, and engine components. You can see our full catalog on the '/shop' page.
   - Do you sell LED lamps?: Yes, we sell a wide variety of lamps, including LED, xenon, and halogen types. You can find them in our '/shop' section.
   - What brands do you carry?: We carry many top brands, including NAITE, Bosch, Hella, and Nissens. You can see a full list of our partner brands on our home page.
-  - How to become a dealer?: To become a dealer, interested parties can fill out the application form on our '/dealer' page on the website. We'd love to hear from you!
+  - How to become a dealer?: To become a dealer, interested parties can fill out the application form on our '/dealer' page on the website. As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business. We'd love to hear from you!
   - What are the benefits of being a dealer?: As a dealer, you get access to our extensive catalog of high-quality parts at competitive prices, a dedicated support team, and inclusion in our network, which can help grow your business.
   - How can I give feedback?: We value your opinion! Customers can use the form on the '/feedback' page to share their thoughts and help us improve.
   - What is your contact information?: You can reach us at info@solution.am or call us at +37491989595. Our office is at Hakob Hakobyan St., 3 Building, Yerevan, Armenia.
