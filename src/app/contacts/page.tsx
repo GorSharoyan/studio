@@ -23,7 +23,7 @@ export default function Contacts() {
             <CardContent>
               <div className="aspect-video w-full overflow-hidden rounded-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.332842034078!2d44.49220931538881!3d40.18029297939226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcf8e0cfffff%3A0x8f3c7349514f7b6f!2sHakob%20Hakobyan%20St%2C%203%2C%20Yerevan%2C%20Armenia!5e0!3m2!1sen!2s!4v1628172938192!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.685211831414!2d44.5619374153898!3d40.21173597938883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a97dd535150e7%3A0x2283226315c1e505!2sMoldovakan%20St%2027a%2C%20Yerevan%2C%20Armenia!5e0!3m2!1sen!2s!4v1728100593451!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
