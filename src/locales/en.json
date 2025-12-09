@@ -81,7 +81,7 @@
     },
     "footer": {
       "tagline": "Creative Solutions for Modern Problems",
-      "address": "Armenia, 0033, Yerevan, Hakob Hakobyan St., 3 Building",
+      "address": "Yerevan, Moldovakan 27A",
       "copyright": "© 2023 Solution.am. All rights reserved."
     }
   },
@@ -159,7 +159,7 @@
       "allCountries": "All Countries",
       "productType": "Product Type",
       "allTypes": "All Types",
-      "searchByName": "Search by name",
+      "searchByName": "Search",
       "searchPlaceholder": "Search..."
     },
     "addToCart": "Add to Cart",
@@ -187,7 +187,7 @@
         },
         "location": {
           "question": "Where are you located?",
-          "answer": "We are located at Hakob Hakobyan St., 3 Building, Yerevan, Armenia. You can find a map on our '/contacts' page."
+          "answer": "We are located at Yerevan, Moldovakan 27A. You can find a map on our '/contacts' page."
         }
       },
       "products": {
@@ -224,7 +224,7 @@
         },
         "contact": {
           "question": "What is your contact information?",
-          "answer": "You can reach us at info@solution.am or call us at +37491989595. Our office is at Hakob Hakobyan St., 3 Building, Yerevan, Armenia."
+          "answer": "You can reach us at info@solution.am or call us at +37491989595. Our office is at Yerevan, Moldovakan 27A."
         }
       }
     }
@@ -241,5 +241,4 @@
     "goToPage": "Go to Page"
   }
 }
-
     

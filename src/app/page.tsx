@@ -115,14 +115,13 @@ export default function Home() {
       <main className="flex-1">
         <section className="relative w-full text-white h-64 sm:h-80 md:h-96">
           {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={t('home.hero.subtitle')}
-              fill
-              className="w-full h-auto object-cover"
-              priority
-              data-ai-hint={heroImage.imageHint}
-            />
+               <Image
+               src="/assets/solution.am_background.jpg"
+               alt="Solution.am Logo"
+               fill
+               className="object-cover"
+               priority
+             />
           )}
           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
             <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl">
